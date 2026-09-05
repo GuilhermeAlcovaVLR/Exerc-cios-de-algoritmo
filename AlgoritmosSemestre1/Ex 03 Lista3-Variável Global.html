@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 03 Lista3-Variável Global</title>
+</head>
+
+<body>
+    Valor recebido com venda de peças<input type="number" id="etq_pec"> <br>
+    Valor recebido com venda de serviços<input type="number" id="etq_serv"> <br>
+    Percentual de imposto sobre os valores recebidos<input type="number" id="etq_imp"> <br>
+    Valor dos gastos no mês <input type="number" id="etq_gts"> <br>
+    <button onclick="somatoria()">ACUMULADO</button> <br>
+    <div id="exibir_acumulado"></div>
+</body>
+
+<script>
+    let mes = 0
+    let acul = 0
+
+    function somatoria() {
+        mes = mes + Number(1);
+        let tot = Number(etq_pec.value) + Number(etq_serv.value);
+        let fazl = tot * etq_imp.value / 100;
+        let sf = tot - (Number(fazl) + Number(etq_gts.value));
+        acul = acul + sf;
+        exibir_acumulado.innerHTML = ` Resumo do mês ${mes} <br>
+   Total recebido = R$ ${tot}<br>
+   Valor do Imposto = R$ ${fazl}<br>
+   Saldo Final de R$ ${sf}<br>
+   Acumulado até o Momento = ${acul}`
+
+    }
+
+</script>
+
+</html>

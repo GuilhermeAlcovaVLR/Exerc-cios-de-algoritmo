@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 2.2. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+
+<body>
+    Insira o 1 número<input type="number" id="num_prim"> <br>
+    Insira o 2 número<input type="number" id="num_sec"> <br>
+    <button onclick="nml()">Quociente</button> <br>
+    <button onclick="rest()">Resto</button> <br>
+    <button onclick="cpt()">Completo</button> <br>
+    <div id="mostra_ped"></div>
+</body>
+<script>
+    function nml() {
+        let n1 = Number(num_prim.value);
+        let n2 = Number(num_sec.value);
+        let div = n1 / n2;
+        mostra_ped.innerHTML = `O resultado da divisão de ${n1} por ${n2} é: ${div.toFixed(2)}`
+    }
+    function rest() {
+        let n1 = Number(num_prim.value);
+        let n2 = Number(num_sec.value);
+        let sobra = n1 % n2;
+        mostra_ped.innerHTML = `O resto da divisão de ${n1} por ${n2} é: ${sobra.toFixed(2)}`
+    }
+    function cpt() {
+        let n1 = Number(num_prim.value);
+        let n2 = Number(num_sec.value);
+        let div = n1 / n2;
+        let sobra = n1 % n2;
+        mostra_ped.innerHTML = `A divisão de ${n1} por ${n2} é:<br>
+    ${div.toFixed(2)}<br>
+    e o resto dessa divisão é: ${sobra}`
+    }
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nota 1 <input type="number" id="n1"> <br>
+    Nota 2 <input type="number" id="n2"> <br>
+    Nota 3 <input type="number" id="n3"> <br>
+    <button onclick="desempenho()">ANALISAR DESEMPENHA</button>
+    <div id="exibir_media"></div>
+
+</body>
+<script>
+    function desempenho() {
+        let nota1 = Number(n1.value)
+        let nota2 = Number(n2.value)
+        let nota3 = Number(n3.value)
+        let media = (nota1 + nota2 + nota3) / 3
+        exibir_media.innerHTML = `Sua média foi de ${media}`
+
+        if (media >= 9.4) {
+            exibir_media.innerHTML += ` <br> Parabéns, você é fora de série!`
+        }
+
+    }
+</script>
+
+</html>

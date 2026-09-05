@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 05. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+Inserir ki base <input type="text" id="ki"/>   
+<button onclick="ssj()">SUPER SAIYAJIN</button> 
+<button onclick="ssj2()">SUPER SAIYAJIN 2</button> 
+<button onclick="ssj3()">SUPER SAIYAJIN 3</button>
+<div id="div_exibir"></div> 
+</body>
+<script>
+function ssj(){
+    let n1 = Number (ki.value);
+    let trans = n1 * 50
+    div_exibir.innerHTML=
+`Após se transformar em Super saiyajin,<br> o ki desse Saiyajin passa a ser de ${trans} `;
+}
+function ssj2(){
+    let n1 = Number (ki.value);
+    let trans = n1 * 100
+div_exibir.innerHTML= `Após se transformar em Super saiyajin 2,<br> 
+o ki desse Saiyajin passa de ${n1} para ser ${trans}`;
+}
+function ssj3(){
+    let n1 = Number (ki.value);
+    let trans = n1 * 200
+    div_exibir.innerHTML = `O Ki desse saiyajin era de ${n1}`;
+    div_exibir.innerHTML += `<br>Após se transformar em Super Saiyajin 3`
+    div_exibir.innerHTML += `<br>O ki dele agora é de ${trans}`
+}
+</script>
+</html>

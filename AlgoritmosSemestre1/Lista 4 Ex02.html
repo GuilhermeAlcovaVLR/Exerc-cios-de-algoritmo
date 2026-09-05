@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantos refrigerantes você toma por dia? <input type="number" id="refri">
+    <br> <button onclick="calcular()">Quantos refris?</button>
+    <div id="exibir_refri"></div>
+    
+</body>
+<script>
+    function calcular(){
+        let ano = Number(refri.value) * 365;
+        exibir_refri.innerHTML = `Você toma ${ano} latinhas por ano`
+
+        if (ano >= 500){
+        exibir_refri.innerHTML += `<br> Cuidado com a diabetes!`
+    }
+    
+    }
+
+</script>
+</html>

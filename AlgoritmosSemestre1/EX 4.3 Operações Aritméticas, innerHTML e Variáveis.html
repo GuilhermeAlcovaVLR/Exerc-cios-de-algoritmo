@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 4.3. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+    Nota da continuada <input type="number" id="cont_nt"> <br>
+    Nota da na semestral  <input type="number" id="sem_nt"> <br>
+    Insira seu nome <input type="text" id="etq_nom"> <br>
+    <button onclick="med()">CALCULAR MÉDIA</button> <br>
+    <div id="exibir_media"></div>
+    
+</body>
+<script>
+    function med(){
+        let ctd= Number(cont_nt.value)*40/100
+        let set= Number(sem_nt.value)*60/100
+        let med= ctd + set 
+        exibir_media.innerHTML= `A média de ${etq_nom.value}
+        <br> é: ${med.toFixed(2)}`
+
+    }
+</script>
+
+</html>

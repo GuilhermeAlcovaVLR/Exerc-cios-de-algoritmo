@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira nota 1 <input type="number" id="n1">
+    Insira nota 2 <input type="number" id="n2">
+    <button onclick="media()">Verificar situação</button>
+
+</body>
+<script>
+    function media (){
+        let nota1 = Number(n1.value);
+        let nota2 = Number(n2.value);
+        let med = (nota1 + nota2)/2;
+         
+        if (med >= 6)
+        alert `Parabéns, aprovado!`;
+
+        if (med < 6)
+        alert `Tente outra vez...`;
+
+    }
+</script>
+</html>

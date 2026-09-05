@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 03. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+INSERIR VALOR DA PASSAGEM <input type="text" id="vlr_psg"/>
+<br>
+INSERIR QUANTAS VIAGENS FARÁ POR MÊS <input type="text" id="qtd_mes"/>
+<br>
+<button onclick="econ()">Ver economia</button>
+<div id="div_exibir"></div>
+</body>
+<script>
+    function econ(){
+        let vlr_nml= (vlr_psg.value * qtd_mes.value)
+        let est= (vlr_nml / 2)
+        div_exibir.innerHTML= 
+        `Você economizará R$ ${est} por mês`
+    }
+</script>
+</html>

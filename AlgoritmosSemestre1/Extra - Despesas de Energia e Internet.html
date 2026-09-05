@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra - Despesas de Energia e Internet</title>
+</head>
+
+<body>
+    Quantidade de energia consumida em kWh <input type="number" id="eng"> <br>
+    Bandeira tarifária da energia <input type="text" id="band"> <br>
+    Quantidade de MB (megabyte) do plano de internet <input type="number" id="byte"> <br>
+    <button onclick="desp()">Calcular Despesa</button>
+    <div id="ex_luz"></div>
+
+</body>
+<script>
+    let internet = 0;
+    let energia = 0;
+
+
+    function desp() {
+        let kwh = Number(eng.value);
+        let mb = Number(byte.value);
+        let bandeira = band.value;
+
+        if (bandeira == 'Verde') {
+            energia = 0.75 * kwh;
+        }
+
+        if (bandeira == 'Vermelha') {
+            energia = 1.15 * kwh;
+        }
+
+        if (mb <= 200) {
+            internet = mb + 40;
+        }
+        if (mb > 200) {
+            internet = mb - 40;
+        }
+        let total = energia + internet;
+        let por = (energia / total) * 100;
+        let gem = (internet / total) * 100;
+        ex_luz.innerHTML = `Gasto total de despesas mensal: R$ ${total}. <br>
+
+Com o consumo de ${kwh} kWh na bandeira ${bandeira}, a conta de energia totaliza R$ ${energia.toFixed(2)} representando ${por.toFixed(2)}% do total de despesas
+        Com o consumo de ${mb} MB de internet, o valor do plano de internet totaliza R$ ${internet.toFixed(2)} representando ${gem.toFixed(2)}% do total de despesas`
+
+    }
+</script>
+
+</html>

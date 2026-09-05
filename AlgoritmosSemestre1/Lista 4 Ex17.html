@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="n">
+    <button onclick="analise()">Analisar</button>
+    <div id="exibir_analise">
+    
+</body>
+<script>
+    function analise() {
+        let div = Number(n.value)% 2
+
+        if(div == 0){      
+            exibir_analise.innerHTML = `<p style= 'background-color: yellow; color : red;'> 
+            Esse número é PAR </p> `
+
+        }
+
+        else {
+          exibir_analise.innerHTML = `<p style= 'color: blue;'> <b>
+          Esse número é IMPAR</b> </p> `
+
+        }
+
+
+    }
+</script>
+</html>

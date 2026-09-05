@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 2.1. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+Insira o primeiro número: <input type="number" id="one_number"> <br> 
+Insira o segundo número:  <input type="number" id="sec_number">  <br>
+<button onclick="soma()">SOMA</button>
+<button onclick="subtrair()">SUBTRAIR</button>
+<button onclick="mult()">MULTIPLICAR</button>
+<button onclick="div()">DIVIDIR</button>
+<div id="resul_mostra"></div>
+</body>
+<script>
+    function soma(){
+        let n1= Number(one_number.value)
+        let n2= Number (sec_number.value)
+        resul_mostra.innerHTML= `${n1} + ${n2} = ${n1+n2}`;
+        
+        }
+    function subtrair(){
+        let n1 = Number(one_number.value);
+        let n2 = Number (sec_number.value);
+        resul_mostra.innerHTML= `${n1} - ${n2} = ${n1-n2}`;
+    }
+    function mult(){
+        let n1 = Number(one_number.value);
+        let n2 = Number (sec_number.value);
+        resul_mostra.innerHTML= `${n1} X ${n2} = ${n1*n2}`;
+    }
+    function div(){
+        let n1 = Number(one_number.value);
+        let n2 = Number(sec_number.value);
+        resul_mostra.innerHTML= `${n1} / ${n2} = ${n1/n2}`;
+    }
+</script>
+</html>

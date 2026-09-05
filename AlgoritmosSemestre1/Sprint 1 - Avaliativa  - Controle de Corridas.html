@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    distância que será percorrida, em quilômetros (KM). <input type="number" id="dist"> <br>
+    velocidade média do carro, em quilômetros por hora (KM/h). <input type="number" id="vm"> <br>
+    <button onclick='simular()'>Simular</button>
+    <div id="exiba_simulacao"></div>
+</body>
+<script>
+    let combustivel = 25;
+    function simular() {
+        let velocidade = Number(vm.value);
+        let distancia = Number(dist.value);
+        let tempo = distancia / velocidade;
+        let gasto = distancia / 10;
+        let por = (gasto * 100) / combustivel;
+        combustivel = combustivel - gasto;
+        let gem = (combustivel * 100) / 25;
+
+        exiba_simulacao.innerHTML = `Ao percorrer ${distancia} km, em velocidade média de ${velocidade} km/h, a viagem durou ${tempo} horas. Ao todo, foram gastos ${gasto} litros de combustível (${por}%). <b>Restam ${combustivel} litros de combustível (${gem}%).</b>`;
+
+        if (gem >= 30) {
+            exiba_simulacao.innerHTML += `<br><b>Continue a rodar!</b> - porque ainda resta 60% do combustível inicial`
+        }
+        else {
+            exiba_simulacao.innerHTML += `- gastou mais 40% <br><b>É melhor parar para reabastecer!</b> porque está abaixo de 30% do combustível inicial`
+        }
+
+
+    }
+
+</script>
+
+</html>

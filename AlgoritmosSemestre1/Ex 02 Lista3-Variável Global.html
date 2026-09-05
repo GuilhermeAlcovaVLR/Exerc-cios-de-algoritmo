@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 02 Lista3-Variável Global</title>
+</head>
+<body>
+
+    Valor que quer depositar ou retirar <input type="number" id="etq_duo"> <br> <br>
+    <button onclick="depositar()">DEPOSITAR</button> <br>
+    <button onclick="retirar()">RETIRAR</button>
+    <div id="banco_din"></div>
+
+</body>
+
+<script>
+    let saldo = 0;
+
+    function depositar(){
+        saldo = saldo + Number(etq_duo.value)
+        banco_din.innerHTML= `Depósito de R$${etq_duo.value} efetuado! Saldo atual: R$${saldo}` 
+    }
+    function retirar(){
+        saldo = saldo - etq_duo.value
+        banco_din.innerHTML= `Retirada de R$${etq_duo.value} efetuada! Saldo atual: R$${saldo}`
+    }
+
+</script>
+</html>

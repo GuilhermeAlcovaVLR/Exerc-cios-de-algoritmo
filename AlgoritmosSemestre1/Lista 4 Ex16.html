@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantidade de homens <input type="number" id="qh">
+    Quantidade de mulheres <input type="number" id="qm">
+    <button onclick="peso()">Ligar elevador</button>
+    <div id="exibir_peso"></div>
+    
+</body>
+<script>
+    function peso(){
+        let homem = Number(qh.value) * 90;
+        let mulheres = Number(qm.value) * 70;
+        let total = homem + mulheres
+        let tiraa = total - 500;
+
+
+        if (total <= 500)
+        exibir_peso.innerHTML = `<p style= 'color : blue;'> Elevador vai se mover, 
+    pois está com ${total}kg </p> `
+
+        if (total > 500) 
+        exibir_peso.innerHTML = `<p style='color: red;'>Alguém precisa descer. <br>
+    Precisa perder ${tiraa}kg para mover o elevador </p>`
+
+    }
+</script>
+</html>

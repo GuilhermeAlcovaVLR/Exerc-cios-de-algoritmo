@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Renda familiar mensal <input id="rfm"> <br>
+    <button onclick="renda()">Analisar Renda</button>
+    <div id="exibir_classe"></div>
+</body>
+
+<script>
+    function renda() {
+        let renda = Number(rfm.value);
+        if (renda <= 250) {
+            exibir_classe.innerHTML = "Classe E"
+        } else if (renda <= 900) {
+            exibir_classe.innerHTML = "Classe D"
+        }else if (renda <= 2500) {
+            exibir_classe.innerHTML = "Classe C"
+        } else if (renda <= 9500) {
+            exibir_classe.innerHTML = "Classe B"
+
+        } else {
+            exibir_classe.innerHTML = "Classe A"
+        }
+
+    }
+</script>
+
+</html>

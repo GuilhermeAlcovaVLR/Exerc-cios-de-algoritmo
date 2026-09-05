@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Temperatura <input type="number" id="temp"> <br>
+    <button onclick="clima()">Verificar Clima </button>
+    <div id="exb_cli">
+    
+</body>
+<script>
+    function clima(){
+        let Temperatura = Number(temp.value);
+        
+        if (Temperatura < 10){
+            exb_cli.innerHTML = '<img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI2mABZJMvUbB96nRcsjayI2C8kds2WKHp3jVsUSQP1cKSct8uoA0PbeQ-&s=10" >'
+        }
+        else {
+            exb_cli.innerHTML = '<img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQggA2r8MK6tpReX-jvKJ-xq5NhPZ87KU750qMXdZsWy8TjyniH0FjN1ylu&s=10" >'
+        }
+        
+        }
+</script>
+</html>

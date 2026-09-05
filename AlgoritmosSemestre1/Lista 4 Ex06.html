@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Luz consumida <input type="number" id="l_cons">
+    <button onclick="conta()"> Calcular conta de luz</button>
+
+</body>
+<script>
+    function conta() {
+        let luz = Number(l_cons.value);
+        let fazol = luz * 0.85;
+
+
+        if (l_cons.value < 100) {
+            alert(`R$ ${fazol * 0.9}`)
+        }
+
+        else {
+            alert(`R$ ${fazol}`)
+        }
+    }
+</script>
+
+</html>

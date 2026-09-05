@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+<h1>Exercício 1</h1>
+<br>
+Insira sua Cidade natal <input id="cn">
+<br>
+Insira seu Ano de Nascimento <input id="data">
+<br>
+<button onclick="cdd()"> Ver sua cidade natal </button>
+<br>
+<button onclick="niver()">Ver sua Data de nascimento</button>
+<br>
+<button onclick="cad()">CADASTRAR</button>
+
+</body>
+<script>
+function cdd (){
+    alert("Cidade Natal:" + cn.value);
+}
+function niver (){
+    alert("Data de nascimento: " + data.value);
+
+}
+function cad(){
+    alert("Você nasce na cidade de " + cn.value + " no ano de " + data.value);
+}
+</script>

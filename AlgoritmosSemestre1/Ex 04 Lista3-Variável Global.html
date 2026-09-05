@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 04 Lista3-Variável Global</title>
+</head>
+
+<body>
+    Dias que a cadeira está em Operação <input type="text" id="etq_op">
+    <button onclick="process()">Processar DIAS</button> <br>
+    <button onclick="stp()">Stop Operação</button> 
+    <button onclick="rein()">Reiniciar Processo</button> <br>
+    <div id="exibir_hist1"></div>
+    <div id="exibir_hist2"></div>
+
+</body>
+<script>
+    let tvm = 1000;
+    function process() {
+        let dias = 24 * etq_op.value;
+        let manu = tvm - dias;
+        exibir_hist1.innerHTML = `O TVM anterior era de ${tvm} horas
+        <br>e após ${etq_op.value} dias de operação
+        <br>o TVM passou para ${manu} horas`
+    }
+    function stp() {
+        let dias = 24 * etq_op.value;
+        let manu = tvm - dias;
+        let desc = manu - 100;
+        exibir_hist2.innerHTML= `O TVM anterior era de ${manu} horas,
+        <br>após o Stop de operação o TVM passou para ${desc} horas`
+    }
+    function rein(){
+        let dias = 24 * etq_op.value;
+        let manu = tvm - dias;
+        let desc = manu - 100;
+        exibir_hist1.innerHTML =`Ainda existia  ${desc} horas, `
+        exibir_hist2.innerHTML += `com o reinicio do processo, o TVM passou para 1000 horas.`
+    }
+</script>
+
+</html>

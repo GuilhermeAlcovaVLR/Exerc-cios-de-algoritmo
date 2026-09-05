@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 01 Lista3-Variável Global</title>
+</head>
+
+<body>
+    <button onclick="rec()">RECEBER 100</button><br>
+    <button onclick="pag()">PAGAR 50</button>
+    <div id="exibir_saldo"></div>
+</body>
+<script>
+    let ax_saldo = 0;
+
+    function rec() {
+        ax_saldo = ax_saldo + Number(100);
+        exibir_saldo.innerHTML = `Transferência de R$100 recebida! Saldo atual: R$${ax_saldo}`
+    }
+
+    function pag() {
+        ax_saldo = ax_saldo - 50;
+        exibir_saldo.innerHTML = `Pagamento de R$50 efetuado! Saldo atual: R$${ax_saldo}`
+    }
+
+
+</script>
+
+</html>

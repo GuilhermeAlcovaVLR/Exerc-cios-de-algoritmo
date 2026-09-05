@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Saldo da conta <input type="number" id="sal"> <br>
+    Débito <input type="number" id="deb"> <br>
+    <button onclick="analise()"> Analisar Conta </button>
+    <div id="exibir_nsaldo">
+
+</body>
+<script>
+    function analise() {
+        let saldo = Number(sal.value);
+        let debito = Number(deb.value);
+        let dor = saldo - debito
+        exibir_nsaldo.innerHTML = `O saldo atual da conta corrente é ${dor}`
+
+        if (dor < 0) {
+            exibir_nsaldo.innerHTML = `<p style='color: red;'><b>O saldo atual da 
+            conta corrente é ${dor}</p></b>`
+
+        }
+
+    }
+</script>
+
+</html>

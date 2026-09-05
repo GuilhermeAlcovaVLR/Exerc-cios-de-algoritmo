@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 04. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+Inserir peso e Kg <input type="text" id="ipt_peso" > <br>
+Inserir altura em metros: <input type="text" id="ipt_alt"> <br>
+<button onclick="imc()">CALCULAR O IMC</button> <br><br>
+<div id="div_exibir"></div>   
+</body>
+
+<script>
+function imc(){
+    let ura = Number(ipt_alt.value);
+    let kg = Number (ipt_peso.value);
+   // let pot = (ura * ura)
+   let pot = (ura**2);
+    let fin = (kg / pot)
+   /* div_exibir.innerHTML= 
+   `Para o peso ${kg} <br> e para a altura de ${ura} <br><br> o IMC é ${fin.toFixed(2)}`;*/
+   div_exibir.innerHTML = `<br> Para o peso ${kg} Kg`;
+   div_exibir.innerHTML += `<br>Para altura ${ura} m`;
+   div_exibir.innerHTML += `<br><br> O IMC é ${fin.toFixed(2)}`;
+
+
+/* pq NAN? com define em kg? é a entrada por enquanto */
+}
+</script>
+</html>

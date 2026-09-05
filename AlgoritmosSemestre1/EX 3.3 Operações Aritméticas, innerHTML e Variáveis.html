@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 3.3. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+
+<body>
+    Qual o seu nome: <input type="text" id="q_nom"> <br>
+    Qual o valor da atividade 1 <input type="number" id="atv_n1"> <br>
+    Qual o valor da atividade 2 <input type="number" id="atv_n2"> <br>
+    Qual o valor da atividade 3 <input type="number" id="atv_n3"> <br>
+    <button onclick="nt()">MOSTRAR NOTA</button>
+    <div id="exb_procaba"></div>
+</body>
+<script>
+    function nt() {
+        let n1 = Number(atv_n1.value);
+        let n2 = Number(atv_n2.value);
+        let n3 = Number(atv_n3.value);
+        let som = (n1 + n2 + n3);
+        let med = som / 3;
+        exb_procaba.innerHTML = `A soma das suas três atividades é: ${som.toFixed(2)} `;
+        exb_procaba.innerHTML += `<br>${q_nom.value}, a média das suas atividades é: ${med.toFixed(2)} `
+    }
+</script>
+
+</html>

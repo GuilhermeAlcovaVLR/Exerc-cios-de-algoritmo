@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 06. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+    Inserir total de B-Dollars:  <input type="text" id="b_dollars">  <br>
+    Inserir Valor da cotação:   <input type="text" id="v_cot"> <br>
+    <button onclick="cambio()">CALCULAR CÂMBIO</button>
+    <div id = "vai_taaqui"></div>
+</body>
+<script>
+    function cambio(){
+        let din = Number(b_dollars.value);
+        let ar = Number(v_cot.value);
+        let conv = (din * ar) - 5.50
+        vai_taaqui.innerHTML= `Ao converter seus B-Dollars, o dinheiro disponível será: R$${conv}`
+
+    }
+</script>
+</html>

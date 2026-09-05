@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 01. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+Inserir valor da pizza<input type="text" id="vl_pizza"/>
+<br>
+Inserir quantidades de amigos <input type="text" id="amg_div"/>
+<button onclick="racha()">LOVEPIZZA</button>
+<div id="div_exibir"></div>    
+</body>
+<script>
+    function racha(){
+        let div= (vl_pizza.value / amg_div.value) 
+        let mensagem=`Cada um dos ${amg_div.value} amigos vai pagar ${div} `
+        div_exibir.innerHTML=mensagem
+    }
+</script>
+</html>

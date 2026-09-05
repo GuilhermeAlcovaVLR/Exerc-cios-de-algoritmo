@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Peso da criança <input id="pc"> <br>
+    <button onclick="criaca()">ANALISAR PESO</button>
+    <div id="exb_peso"></div>
+</body>
+
+<script>
+    function criaca() {
+        let peso = Number(pc.value);
+        if (peso == 18.3) {
+            exb_peso.innerHTML = "Peso perfeito!"
+        } else if (peso <= 13.5) {
+            exb_peso.innerHTML = "Abaixo do peso"
+        } else if (peso <= 21.2) {
+            exb_peso.innerHTML = "Peso na media"
+        } else {
+            exb_peso.innerHTML = "Acima do peso"
+        }
+    }
+</script>
+
+</html>

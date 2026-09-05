@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Frequencia do aluno <input type="number" id="etq">
+    <button onclick="freq()">Analisar frequência</button>
+    <div id="exb_alun"></div>
+
+</body>
+<script>
+    function freq() {
+        let frequencia = Number(etq.value)
+
+        if (frequencia <= 50) {
+            exb_alun.innerHTML = `<img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT08BC6Bw6BEDgndp098ReBd228ca30BfwIL_8bib4abFHL8brvBARLKKue&s=10'>`
+        }
+        else {
+            exb_alun.innerHTML = "<img src='https://static.wikia.nocookie.net/bokunoheroacademia/images/4/4b/Izuku_study_hard_for_the_finals.png/revision/latest?cb=20200416204023&path-prefix=pt-br'>"
+        }
+
+    }
+    
+</script>
+
+</html>

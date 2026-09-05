@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="n"> <br>
+    <input type="number" id="n2"> <br>
+
+    <button onclick="testar()">TESTAR</button>
+    <div id="exibir_analise">
+
+</body>
+<script>
+    function testar() {
+        let div = Number(n.value) % Number(n2.value);
+
+        if (div == 0) {
+            exibir_analise.innerHTML = "<img src='https://w7.pngwing.com/pngs/147/495/png-transparent-smiley-thumb-signal-emoticon-meme-smiley-love-miscellaneous-face-thumbnail.png'>"
+        }
+
+        else {
+            exibir_analise.innerHTML = "<img src='https://thumbs.dreamstime.com/b/n%C3%A3o-vetora-nenhuma-cara-do-meme-do-indiv%C3%ADduo-para-nenhum-projeto-eps-77978488.jpg'>"
+        }
+    }
+
+</script>
+
+</html>

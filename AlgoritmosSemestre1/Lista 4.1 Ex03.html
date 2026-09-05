@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Temperatura <input id="temp"> <br>
+    <button onclick="temperatura()">Ver temperatura</button>
+    <div id="exibir"></div>
+</body>
+
+<script>
+    function temperatura() {
+        let ura = Number(temp.value);
+        if (ura < 14) {
+            exibir.innerHTML = 'Congelante'
+        } else if (ura <= 21) {
+            exibir.innerHTML = 'Com Frio'
+        } else if (ura <= 24) {
+            exibir.innerHTML = 'Confortável '
+
+        } else if (ura <= 31) {
+            exibir.innerHTML = 'Com Calor '
+
+        } else {
+            exibir.innerHTML = 'Calor escaldante'
+
+        }
+    }
+</script>
+
+</html>

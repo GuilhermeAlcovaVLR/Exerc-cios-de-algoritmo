@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Informe a SITCOM <input type="text" id='sit'> <br>
+    Quantos episódios você já Viu? <input type="number" id="eps"> <br>
+    <button onclick="serie()"> Verificar nível</button>
+    <div id="exb_serie">
+
+</body>
+<script>
+    function serie() {
+        let episodio = Number(eps.value);
+        let temp = episodio * 22
+        exb_serie.innerHTML = `Vejo que você gosta da série ${sit.value}`
+        <!-- 30 horas * 60 = 1800minutos   -->
+        if (temp > 1800)
+            exb_serie.innerHTML += `<br>Uau, você realmente gosta dessa série!`
+    }
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Valor do saldo <input type="number" id="sal">
+    <button onclick="finan()">Verificar finanças</button>
+    <div id="exb_fin">
+</body>
+<script>
+    function finan() {
+        let saldo = Number(sal.value);
+
+        if (saldo == 0)
+            exb_fin.innerHTML = `Conta zerada`;
+
+        else
+            if (saldo < 0)
+                exb_fin.innerHTML = `Está devendo!`
+            else exb_fin.innerHTML = `Saldo positivo! Sorriso!:D`
+
+    }
+</script>
+
+</html>

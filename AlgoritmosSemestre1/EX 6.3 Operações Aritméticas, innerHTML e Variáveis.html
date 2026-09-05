@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 6.3. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+
+<body>
+    Votos do candidato A <input type="number" id="vt_cand"> <br>
+    Votos do candidato B <input type="number" id="vt_b"> <br>
+    Votos em branco <input type="number" id="vt_inv"> <br>
+    Votos nulos <input type="number" id="vt_null"> <br>
+    <button onclick="result()">Resultado da Eleição</button> <br>
+    <div id="mostra_l"></div>
+</body>
+<script>
+    function result() {
+        let an = Number(vt_cand.value);
+        let bn = Number(vt_b.value);
+        let invn = Number(vt_inv.value);
+        let nulln = Number(vt_null.value);
+        let tot = an + bn + invn + nulln;
+        let por1 = (an / tot) * 100;
+        let por2 = (bn / tot) * 100;
+        let proinv = ((invn + nulln) / tot) * 100;
+        let podiatercriadoantes = invn + nulln;
+        mostra_l.innerHTML = `Total de votos: ${tot}  
+
+    <br>Candidato A: ${por1.toFixed(0)}% (${vt_cand.value} votos)  
+
+    <br>Candidato B: ${por2.toFixed(0)}% (${vt_b.value} votos)  
+
+    <br>Inválidos: ${proinv.toFixed(0)}% (${podiatercriadoantes} votos)  `
+    }
+</script>
+
+</html>

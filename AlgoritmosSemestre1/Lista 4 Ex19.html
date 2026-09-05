@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Chocolates comprados <input type="number" id="choc"> <br>
+    <button onclick="lates()">Compra</button>
+    <div id="exibir_compra"></div>
+</body>
+<script>
+    function lates() {
+        let wonka = Number(choc.value)
+        let willy = wonka * 3
+        let diabetis = wonka * 2.50
+        
+        if (wonka <= 12)
+        exibir_compra.innerHTML = `o valor da sua compra foi de ${willy}`
+
+        else 
+        exibir_compra.innerHTML = `o valor da sua compra foi de ${diabetis}`         
+    }
+</script>
+
+</html>

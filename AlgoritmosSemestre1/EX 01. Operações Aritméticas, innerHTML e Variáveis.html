@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 01. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+   INSIRIR IDADE: <input type="text" id = "ipt_idd"/>
+   <br>
+   <button onclick="aph()">APOSENTADORIA HOMEM</button>
+   <br>
+   <button onclick="apm()">APOSENTADORIA MULHER</button>
+   <div id="div_exibir"></div>
+</body>
+<script>
+function aph(){
+    let n1= Number(70);
+    let resultado= (n1 - ipt_idd.value)
+    let mensagem= `Falta ${resultado} anos para você se aposentar`
+    div_exibir.innerHTML= mensagem;
+}
+function apm(){
+    let n1=Number(60);
+    let result= (n1 - ipt_idd.value)
+    let mensagem= `Falta ${result} anos para você se aposentar`
+    div_exibir.innerHTML= mensagem;
+
+}
+
+</script>
+
+
+</html>

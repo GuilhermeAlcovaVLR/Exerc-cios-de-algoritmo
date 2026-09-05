@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 5.3. Operações Aritméticas, innerHTML e Variáveis</title>
+</head>
+<body>
+    INSIRA HORAS DORMIDAS <input type="number" id="hrs_dorms">
+    <br> <button onclick="sonofase()">CALCULAR SONO</button>
+    <div id="exibir_fase"></div>
+    
+</body>
+<script>
+    function sonofase(){
+        let hd = Number(hrs_dorms.value);
+        let f1 = hd * 5/100;
+        let f2 = hd * 45/100;
+        let f3 = hd * 30/100;
+        let rem = hd * 20/100;
+        exibir_fase.innerHTML= `<br> Ao dormir ${hd} horas, você dormiu: 
+   <br> ${f1} horas na fase 1  
+
+    <br> ${f2} horas na fase 2  
+
+    <br> ${f3} horas na fase 3  
+
+    <br> ${rem} horas na fase REM  `
+    }
+</script>
+</html>

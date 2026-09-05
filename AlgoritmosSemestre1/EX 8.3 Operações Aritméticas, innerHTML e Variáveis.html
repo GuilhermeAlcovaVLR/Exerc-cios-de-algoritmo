@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor da passagem <input type="number" id='vlr_psg'> <br>
+    Quantidade de Viagens <input type="number" id="qtd_vig"> <br>
+    Distancia do trabalho até em casa <input type="number" id="dist"> <br>
+    <button onclick="vt()">CALCULAR VT</button>
+    <div id="exibri_vt"></div>
+</body>
+<script>
+    function vt(){
+        let psg = Number(vlr_psg.value);
+        let vig = Number(qtd_vig.value);
+        let distancia = Number(dist.value);
+        let uber = vig * 10/100;
+        let uberpag =  uber * distancia * (75/100);
+        let oni = psg * (vig - uber);
+        let gast = uberpag + oni;
+        exibri_vt.innerHTML= `Você vai gastar R$${gast} por mês com transporte.`
+
+    }
+</script>
+</html>

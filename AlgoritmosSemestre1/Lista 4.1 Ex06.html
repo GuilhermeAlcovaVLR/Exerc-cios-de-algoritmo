@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<select id="paulistas">
+    <option value="Salve o Corinthians">CORINTHIANS</option>
+    <option value="Salve o alviverde imponente">PALMEIRAS</option>
+    <option value="Agora quem dá a bola é o Santos">SANTOS</option>
+    <option value="Salve o Tricolor paulista">SÃO PAULO</option>
+</select>
+<button onclick="falar()">Fale sobre esse time</button>
+<div id="exibir"></div>
+<script>
+    function falar(){
+        let times = paulistas.value;
+        if (times == "Salve o Corinthians"){
+            exibir.innerHTML = `<p style = "background-color: black; color:white">${times}</p>`
+        } else if (times == "Salve o alviverde imponente"){
+            exibir.innerHTML = `<p style = "background-color: black; color: white;">${times}</p>`
+        } else if (times == "Agora quem dá a bola é o Santos"){
+            exibir.innerHTML = `<p style = "background-color: black; color: white;">${times}</p>`
+        }else if (times == "Salve o Tricolor paulista"){
+            exibir.innerHTML = `<p style = "background-color: black; color: red;">${times}</p>`
+        }
+    }
+</script>
+
+</html>
