@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa - 1</title>
+</head>
+
+<body>
+    <h2>ANIL OSAG</h2>
+    <select type="text" id="opt_combustivel">
+        <option disabled selected>Combustível vendido</option>
+        <option value="gasolina">gasolina</option>
+        <option value="etanol">etanol</option>
+        <option value="diesel">diesel</option>
+
+    </select><br>
+    Quantidade vendida em litros <input type="number" id="ipt_ved"><br>
+    Hora da venda<input type="number" id="ipt_hr">
+    <button onclick="venda()">Registrar venda</button>
+    <button onclick="encerrar()">Terminar dia</button>
+    <div id="div_exibir"></div>
+
+</body>
+<script>
+    let lista_venda = 0;
+    let acumulo_recebimentos = 0;
+    let acumulo_descontos = 0;
+    let gasolina_total = 0;
+    let etanol_total = 0;
+    let diesel_total = 0;
+    let combustivel_total = 0;
+
+
+    function venda() {
+        let tipo = opt_combustivel.value;
+        let qtdl = Number(ipt_ved.value);
+        let hora = Number(ipt_hr.value);
+
+        let pgas = qtdl * 6.49;
+        let peta = qtdl * 4.44;
+        let pdie = qtdl * 4.39;
+
+        let dgas = (qtdl * 6.49) * 0.0505;
+        let deta = (qtdl * 4.44) * 0.0480;
+        let ddie = (qtdl * 4.39) * 0.0303;
+
+        let gasre = pgas - dgas;
+        let etare = peta - deta;
+        let diere = pdie - ddie;
+
+        if (hora % 1 != 0 || hora > 23 || hora < 0) {
+            alert(`Insira um horário válido`)
+        } else if ((tipo == "gasolina") && (qtdl >= 20) && (hora >= 21 || hora <= 6)) {
+            lista_venda = lista_venda + 1;
+            acumulo_recebimentos = acumulo_recebimentos + gasre;
+            acumulo_descontos = acumulo_descontos + dgas;
+            combustivel_total = combustivel_total + qtdl;
+            gasolina_total = gasolina_total + qtdl
+
+            div_exibir.innerHTML += `<br>Venda ${lista_venda}ª 
+            <br> Valor Recebido = R$ ${gasre.toFixed(2)} <br>
+            Desconto Concedido = R$ ${dgas.toFixed(2)} <br>
+            Acumulado dos Recebimentos= R$ ${acumulo_recebimentos.toFixed(2)} <br>
+             Acumulado dos Descontos = R$ ${acumulo_descontos.toFixed(2)}<br>`
+        } else if ((tipo == "gasolina")) {
+            lista_venda = lista_venda + 1;
+            acumulo_recebimentos = acumulo_recebimentos + gasre;
+            combustivel_total = combustivel_total + qtdl;
+            gasolina_total = gasolina_total + qtdl
+
+            div_exibir.innerHTML += `<br>Venda ${lista_venda}ª 
+            <br> Valor Recebido = R$ ${pgas.toFixed(2)} <br>
+            Desconto Concedido = R$ 0<br>
+            Acumulado dos Recebimentos= R$ ${acumulo_recebimentos.toFixed(2)} <br>
+             Acumulado dos Descontos = R$ ${acumulo_descontos.toFixed(2)}<br>`
+        } else if ((tipo == "etanol") && (qtdl >= 20) && (hora >= 21 || hora <= 6)) {
+            lista_venda = lista_venda + 1;
+            acumulo_recebimentos = acumulo_recebimentos + etare;
+            acumulo_descontos = acumulo_descontos + deta;
+            combustivel_total = combustivel_total + qtdl;
+            etanol_total = etanol_total + qtdl
+
+            div_exibir.innerHTML += `<br>Venda ${lista_venda}ª <br> 
+            Valor Recebido = R$ ${etare.toFixed(2)} <br>
+            Desconto Concedido = R$ ${deta.toFixed(2)} <br>
+            Acumulado dos Recebimentos= R$ ${acumulo_recebimentos.toFixed(2)} <br>
+             Acumulado dos Descontos = R$ ${acumulo_descontos.toFixed(2)}<br>`
+        } else if ((tipo == "etanol")) {
+            lista_venda = lista_venda + 1;
+            acumulo_recebimentos = acumulo_recebimentos + etare;
+            combustivel_total = combustivel_total + qtdl;
+            etanol_total = etanol_total + qtdl;
+
+
+            div_exibir.innerHTML += `<br>Venda ${lista_venda}ª <br>
+             Valor Recebido = R$ ${peta.toFixed(2)} <br>
+            Desconto Concedido = R$ 0 <br>
+            Acumulado dos Recebimentos= R$ 
+            ${acumulo_recebimentos.toFixed(2)} <br>
+             Acumulado dos Descontos = R$ ${acumulo_descontos.toFixed(2)}<br>`
+        } else if ((tipo == "diesel") && (qtdl >= 20) && (hora >= 21 || hora <= 6)) {
+            lista_venda = lista_venda + 1;
+            acumulo_recebimentos = acumulo_recebimentos + diere;
+            acumulo_descontos = acumulo_descontos + ddie;
+            combustivel_total = combustivel_total + qtdl;
+            diesel_total = diesel_total + qtdl
+
+            div_exibir.innerHTML += `<br>Venda ${lista_venda}ª <br> 
+            Valor Recebido = R$ ${diere.toFixed(2)} <br>
+            Desconto Concedido = R$ ${ddie.toFixed(2)} <br>
+            Acumulado dos Recebimentos= R$ ${acumulo_recebimentos.toFixed(2)} <br>
+             Acumulado dos Descontos = R$ ${acumulo_descontos.toFixed(2)}<br>`
+        } else {
+            lista_venda = lista_venda + 1;
+            acumulo_recebimentos = acumulo_recebimentos + diere;
+            combustivel_total = combustivel_total + qtdl;
+            diesel_total = diesel_total + qtdl
+
+            div_exibir.innerHTML += `<br>Venda ${lista_venda}ª <br>
+             Valor Recebido = R$ ${pdie.toFixed(2)} <br>
+            Desconto Concedido = R$ 0 <br>
+            Acumulado dos Recebimentos= R$ ${acumulo_recebimentos.toFixed(2)} <br>
+             Acumulado dos Descontos = R$ ${acumulo_descontos.toFixed(2)} <br>`
+        }
+
+    }
+    function encerrar() {
+        let percentual_gas = (gasolina_total / combustivel_total) * 100;
+        let percentual_eta = (etanol_total / combustivel_total) * 100;
+        let percentual_die = (diesel_total / combustivel_total) * 100;
+
+
+        div_exibir.innerHTML = `<br>
+        <b><u>Resumo do Faturamento</b></u><br><br>
+        Valor Total Recebido = R$ ${acumulo_recebimentos.toFixed(2)}<br>
+        Valor Total dos Descontos = R$ ${acumulo_descontos.toFixed(2)}<br><br>
+
+        
+Quantidade de Gasolina Vendida = ${gasolina_total.toFixed(2)} == ${percentual_gas.toFixed(2)}%<br>
+        
+Quantidade de Etanol Vendida = ${etanol_total.toFixed(2)} == ${percentual_eta.toFixed(2)}%<br>
+        
+Quantidade de Diesel Vendida = ${diesel_total.toFixed(2)} == ${percentual_die.toFixed(2)}%
+`
+        lista_venda = 0;
+        acumulo_recebimentos = 0;
+        acumulo_descontos = 0;
+        gasolina_total = 0;
+        etanol_total = 0;
+        diesel_total = 0;
+        combustivel_total = 0;
+    }
+</script>
+
+</html>

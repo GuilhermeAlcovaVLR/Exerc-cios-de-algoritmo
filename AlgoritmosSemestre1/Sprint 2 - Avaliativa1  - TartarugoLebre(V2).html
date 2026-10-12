@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> F1 Tartarugo x Coelhildo</h1>
+    Tamanho da pista em metros: <input type="number" id="ipt_pista"><br>
+    Quantos metros a tartaruga anda por rodada: <input type="number" id="ipt_tar"> <br>
+    Quantos metros o coelho anda por rodada: <input type="number" id="ipt_coelho"> <br>
+    A cada quantas rodadas o coelho dorme: <input type="number" id="ipt_dorme"> <br>
+    <button onclick="corrida()">Dar a largada</button>
+    <div id="div_exibir"></div>
+
+</body>
+
+</html>
+<script>
+
+    function corrida() {
+        let pista = Number(ipt_pista.value);
+        let Veltartaruga = Number(ipt_tar.value);
+        let Distartaruga = Number(0)
+        let Velcoelho = Number(ipt_coelho.value);
+        let Discoelho = Number(0)
+        let soneca = Number(ipt_dorme.value);
+        let num_sonecas = Number(0);
+        let rodada = Number(0);
+        let texto = ``
+        if (pista <= 0 || Veltartaruga <= 0 || Velcoelho <= 0 ||
+            soneca <= 0 || Velcoelho <= Veltartaruga) {
+            alert(
+                `Nenhum dos valores pode ser menor ou igual a zero
+            E a velocidade da Tartarugo não é maior que a do Coelhildo`)
+        }
+        else {
+            while (Distartaruga < pista && Discoelho < pista) {
+                rodada++
+                if (rodada % soneca == 0) {
+                    num_sonecas++
+                    Distartaruga = Distartaruga + Veltartaruga;
+                    Discoelho = Discoelho + 0;
+                    texto += `<br>Rodada ${rodada}: Tartaruga ${Distartaruga}m| Coelho ${Discoelho}m -  Coelho dormindo (zzz...)`
+                } else {
+                    Distartaruga = Distartaruga + Veltartaruga;
+                    Discoelho = Discoelho + Velcoelho;
+                    texto += `<br>Rodada ${rodada}: Tartaruga ${Distartaruga}m| Coelho ${Discoelho}m`
+
+                }
+
+            }
+            div_exibir.innerHTML = `${texto}<br>`
+            let percentualsonecas = ((num_sonecas / rodada) * 100);
+            let percentualcoelho = ((Discoelho / pista) * 100);
+            let percentualtartaruga = ((Distartaruga / pista) * 100)
+            if (Discoelho >= pista && Distartaruga >= pista) {
+                div_exibir.innerHTML += `
+                =========================================<br>
+                Tartarugo Devagarinho e Coelhildo soneca empataram <br>
+                Coelhildo Soneca tirou ${num_sonecas} sonecas, oque representa ${percentualsonecas.toFixed(2)}<br>
+                ==========================================<br>
+                <br> <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEws0nbzVUweNwXnJdkGVxe7HNHR5M-X6_PG8KPbt8tLjVDD-X5uh7xgA&s=10"> `
+
+            } else if (Discoelho > Distartaruga) {
+                div_exibir.innerHTML += `
+                ==========================================<br>
+                Coelhildo Soneca venceu na rodada ${rodada}<br>
+               tartarugo lentinho completou ${percentualtartaruga.toFixed(2)}% da pista<br>
+               Coelhildo Soneca tirou ${num_sonecas} sonecas, o que representa ${percentualsonecas.toFixed(2)} <br>
+                ==========================================<br>
+
+               <img src ="https://imagem.band.com.br/f_480642.jpg" >`
+            } else if (Distartaruga > Discoelho) {
+                div_exibir.innerHTML += `
+                ==========================================<br>
+                Tartarugo Devagarinho venceu na rodada ${rodada}!<br>
+                Coelhildo Soneca completou ${percentualcoelho.toFixed(2)}% da pista<br>
+                Coelhildo Soneca tirou ${num_sonecas} sonecas, oque representa ${percentualsonecas.toFixed(2)}<br>
+             ==========================================<br>
+
+                <img src ="https://w0.peakpx.com/wallpaper/440/216/HD-wallpaper-mutant-ninja-turtles-dark-donatelo-hero-leonardo-michalanjelo-mutant-ninja-tartarugas-teenage-thumbnail.jpg"> `
+            }
+        }
+    } 
+</script>

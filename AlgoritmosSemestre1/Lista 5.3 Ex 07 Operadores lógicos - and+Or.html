@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Idade <input id="ipt_idd">
+    <br>
+    <select type="number" id="opt_cnh">
+        <option disabled selected>CNH válida</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+    </select>
+    Renda mensal: <input id="ipt_mes">
+    <br>
+    <select id="opt_fiador">
+        <option disabled selected>Possui fiador?</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+    </select>
+    <button onclick="financiamento()">Analisar financiamento</button>
+</body>
+<script>
+    function financiamento(){
+        let idade = Number(ipt_idd.value);
+        let cnh = opt_cnh.value;
+        let mes = ipt_mes.value;
+        let fiador = opt_fiador.value;
+        if((idade >= 21 && cnh == "SIM") && (mes >= 2500 || fiador == "SIM")){
+            alert(`Financiamento APROVADO`)
+        }else{
+            alert(`Financiamento NEGADO`)
+        }
+    }
+</script>
+</html>

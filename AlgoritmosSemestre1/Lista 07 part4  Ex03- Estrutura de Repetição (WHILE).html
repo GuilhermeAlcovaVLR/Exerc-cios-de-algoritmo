@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um Dividendo <input type="number" id="ipt_dividendo"><br>
+    Insira um Divisor <input type="number" id="ipt_divisor"><br>
+    <button onclick="divisao()">Dividir</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    function divisao(){
+        let dividendo = Number(ipt_dividendo.value);
+        let divisor = Number(ipt_divisor.value);
+        let quociente = Number(0);
+        let resto = Number(``)
+        let texto =``
+        if(dividendo < divisor){
+            alert(`Dividendo não pode ser menor que o divisor`)
+        }else{
+            while(dividendo >= divisor){
+                quociente++
+                dividendo = dividendo - divisor
+                texto = `Quociente: ${quociente}<br>
+                Resto: ${dividendo}` 
+            }
+            div_exibir.innerHTML = `${texto}`
+        }
+    }
+</script>

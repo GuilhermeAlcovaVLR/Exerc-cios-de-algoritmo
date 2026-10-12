@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_fruta"><br>
+    <button onclick="procura()">Pesquisar</button>
+    <div id="exiba"></div>
+</body>
+<script>
+    let lista = ["kiwi","banana", "laranja"]
+    function procura(){
+        let f = ipt_fruta.value;
+        let fruta = f.toLowerCase();
+
+        if(lista.includes(fruta)){
+            exiba.innerHTML = `  A fruta ${fruta} existe na lista.`
+
+        }else {
+            exiba.innerHTML = `    Não existe a fruta ${fruta} na lista.`
+        }
+    }
+</script>
+</html>

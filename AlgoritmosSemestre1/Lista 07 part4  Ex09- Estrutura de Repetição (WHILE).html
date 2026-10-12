@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Poupança</title>
+
+</head>
+
+<body>
+
+    <h2>Poupança</h2>
+
+    Entre com o valor mensal de depósito: <input id="ipt_deposito" type="number"> <br>
+
+    Entre com a quantidade de meses: <input id="ipt_meses" type="number"> <br>
+
+    Entre com o percentual de juros: <input id="ipt_juros" type="number"> <br> <br>
+
+    Qual é o seu sonho: <input id="ipt_sonho"> <br>
+
+    Qual o valor do seu sonho: <input id="ipt_valorSonho" type="number">
+
+    <button onclick="projetar()">Projetar</button><br> <br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+<script>
+
+    function projetar() {
+        let deposito = Number(ipt_deposito.value);
+        let meses = Number(ipt_meses.value);
+        let juros = Number(ipt_juros.value) / 100;
+        let juros_rendido = Number(``)
+        let sonho = ipt_sonho.value;
+        let Valorsonho = Number(ipt_valorSonho.value);
+        let contador = Number(0);
+        let valor_inicial = Number(0);
+        let valor_final = Number(0);
+        let texto = ``
+        if (deposito <= 0 || meses % 1 != 0 || meses <= 0 || juros <= 0 || juros >= 10 || sonho.length < 3 || Valorsonho <= 0 || deposito >= Valorsonho) {
+            alert(` O DEPOSITO tem que ser maior que zero, os MESES que ser inteiro e maior que zero, JUROS tem que ser positivo e maior que zero e menor que 10, seu SONHO tem que possuir ao menos 3 caracteres e VALOR DO SONHO tem que ser positivo e maior que o DEPOSITO`)
+        } else {
+            while (contador < meses) {
+                contador++
+                valor_inicial = valor_final
+                juros_rendido = valor_inicial * juros
+                valor_final = valor_inicial + juros_rendido + deposito
+
+                texto += `Mês = ${contador}
+                Valor inicial = R$${valor_inicial.toFixed(2)}
+                Juros = R$${juros_rendido.toFixed(2)}
+                Depósito = R$${deposito.toFixed(2)}
+                Valor fina = R$${valor_final.toFixed}<br>`
+
+
+            }
+            let sobra = valor_final - Valorsonho
+            let falta = sobra * -1
+            div_msg.innerHTML = `${texto}`
+            if(valor_final >= Valorsonho){
+                div_msg.innerHTML += `<br> 
+                <b><p style = "color: red;">Parabéns você é um POUPADOR, além do seu sonho de ${sonho} <br>ainda sobrou R$ ${sobra.toFixed(2)} para outras aquisições</b></p>`
+            }else{
+                div_msg.innerHTML += `<br>
+                <b><p style = "color: red;">Você precisa poupar um pouco mais. Para o sonho de ${sonho} ainda falta R$ ${falta.toFixed(2)}</b></p>`
+            }
+        }
+
+    }
+
+</script>
+
+</html>

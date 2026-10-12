@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Olá! Bem-vindo ao mundo de POKÉMON! Meu nome é OAK! 
+    <br>As pessoas me chamam de PROFESSOR POKÉMON! 
+    <br>Este mundo é habitado por criaturas chamadas POKÉMON!
+    <br>Para algumas pessoas, POKÉMON são bichinhos de estimação. Outros os usam <br>para lutar. Eu... estudo POKÉMON como profissão. 
+    <br>Sua própria lenda POKÉMON está prestes a começar! 
+    <br>Um mundo de sonhos e aventuras com POKÉMON espera por você! 
+    <br>Vamos nessa!
+    <br><b>Agora, [Seu Nome], qual Pokémon você quer?</b>
+    <select id="pok">
+        <option value="Bulbasaur">Bulbasaur</option>
+        <option value="Charmander">Charmander</option>
+        <option value="Squirtle">Squirtle</option>
+        <option value="na">Quero outro</option>
+    </select>
+        <br><button onclick="escolher()">Pokémon eu escolho você</button>
+        <div id="exibir_pokemon"></div>
+    </select>
+</body>
+<script>
+    function escolher(){
+        if (pok.value == "na"){
+            exibir_pokemon.innerHTML = `<img src= "https://t2.tudocdn.net/568114?w=1200&h=1200">`
+        }
+        if (pok.value == "Bulbasaur"){
+            exibir_pokemon.innerHTML = `<img src="https://static.wikia.nocookie.net/pokemonet/images/2/21/001Bulbasaur.png/revision/latest?cb=20130504203725&path-prefix=pt-br">`
+        } if (pok.value == "Charmander"){
+            exibir_pokemon.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb4cAgDYgdgjtfaFXXz1AkLRYLIxeEi60ubWaHEqoUA0sesIjTLp27hbY&s=10">`
+
+        } if (pok.value == "Squirtle"){
+            exibir_pokemon.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5CCfl7Q5CcNsPFxBE_mMJSVCsI6OjjZJmWGXXDUX4GQ&s=10">`
+
+        }
+    }
+</script>
+</html>

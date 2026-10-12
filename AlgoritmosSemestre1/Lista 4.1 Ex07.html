@@ -6,6 +6,32 @@
     <title>Document</title>
 </head>
 <body>
-    
+    Quantos pães franceses come por dia? <input id="pf">
+    <br>Quantos pacotes de bolacha recheada tem comido por dia? <input id="br">
+    <br>Quantos copos de achocolatado tem tomado por dia <input id="choc">
+    <button onclick="gordo()">Verificar calorias</button>
+    <div id="exibir_calorias"></div>
 </body>
+<script>
+    function gordo(){
+        let qtdp = Number(pf.value);
+        let qtdb = Number(br.value);
+        let qtda = Number(choc.value);
+
+        let calp = Number(50) * qtdp;
+        let calb = Number (80)* qtdb;
+        let cala = Number(70) * qtda;
+
+        let calorias = cala + calb + calp;
+
+        exibir_calorias.innerHTML =  `${calorias} calorias <br>`
+        if (calorias < 200){
+            exibir_calorias.innerHTML +=   "Parabéns, vai ficar em forma!"
+        } else if (calorias <400){
+        exibir_calorias.innerHTML +=   "Cuidado, vai ficar menos saudável !" 
+        }else {
+        exibir_calorias.innerHTML += "Alerta crítico de saúde !!!"    
+        }
+    }
+</script>
 </html>

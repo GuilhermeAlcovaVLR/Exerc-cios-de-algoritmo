@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Digite a quantidade de marinheiros<input type="number" id="ipt_marinheiros"><br><br>
+
+    Digite a quantidade de carne que o luffy tem de reserva<input type="number" id="ipt_carne"><br><br>
+
+    Quantas vezes uma batalha pode ser refeita?<input type="number" id="ipt_batalhas"><br><br>
+
+
+    <button onclick="luta()">Vem pro pau!</button>
+    <div id="div_exibir"></div>
+
+</body>
+<script>
+    function luta() {
+        let marinheiros = Number(ipt_marinheiros.value);
+        let carne = Number(ipt_carne.value);
+        let quantas_carne = Number(0)
+        let buxa = Number(0);
+        let contador = Number(0);
+        let luffy = Number(100);
+        let marinheiros_forca = Number(5);
+        let contagem = Number(0)
+
+        let batalha = Number(ipt_batalhas.value);
+        let texto = ``;
+
+
+        while (contador < batalha) {
+
+            while (contagem < marinheiros) {
+
+                if (luffy >= marinheiros_forca) {
+                    luffy -= marinheiros_forca
+                    buxa++
+                    contagem++
+
+                }else if (luffy < marinheiros_forca && carne > 0) {
+                    quantas_carne++
+                    carne--
+                    luffy = 100
+
+                }else{
+                    contagem = marinheiros
+                }
+
+                    
+            }
+            contador++
+
+            if (buxa === marinheiros) {
+                texto += `--------------------------------------------------------<br><br>
+            ${contador}<br><br>
+            Quantidade de marinheiros: ${marinheiros}<br><br>
+            Quantidade de carne: ${carne}<br><br>
+            Resultado: Luffy saiu vitorioso, comeu ${quantas_carne} carne(s), derrotou ${buxa} marinheiro(s) e sobrou ${luffy} pontos de energia<br><br>
+            --------------------------------------------------------<br><br>`
+            } else {
+                texto += `--------------------------------------------------------<br><br>
+            ${contador}<br><br>
+            Quantidade de marinheiros: ${marinheiros}<br><br>
+            Quantidade de carne: ${carne}<br><br>
+            Resultado: Luffy saiu derrotado, comeu ${quantas_carne} carne(s), derrotou ${buxa} marinheiro(s) e sobrou ${luffy} pontos de energia<br><br>
+            --------------------------------------------------------<br><br>`
+            }
+            contagem = 0
+            buxa = 0
+            luffy = 100
+
+            
+
+        }
+
+        div_exibir.innerHTML = `${texto}`
+
+
+
+
+
+    }
+</script>
+
+</html>

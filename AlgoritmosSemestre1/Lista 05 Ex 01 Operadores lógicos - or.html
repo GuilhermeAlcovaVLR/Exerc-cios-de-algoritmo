@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Fruta na mesa: <input type="text" id="fm">
+    <br><button onclick="come()">Vai comer?</button>
+</body>
+<script>
+    function come(){
+        let fruta = fm.value;
+        if (fruta == "uva" || fruta == "abacaxi" || fruta == "Uva" || fruta=="Abacaxi"){
+            alert(`Sim, vai comer ${fruta}`)
+        } else {
+            alert(`A fruta ${fruta} ela não come` )
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira um número entre 0 e 100 <input type="number" id="ipt_num"><br>
+    <button onclick="ver()">Ver divisores</button>
+    <div id="div_exibir"></div>
+
+</body>
+
+</html>
+<script>
+    function ver() {
+        let numero = Number(ipt_num.value)
+        let contador = Number(0)
+        let texto = ``
+        if (numero < 0 || numero > 100) {
+            alert(`Insira um número válida`)
+        } else {
+            while (contador < numero){
+                contador++
+                if(numero % contador == 0){
+                    texto += `<br>${contador}`
+                }
+            }
+        }
+        div_exibir.innerHTML = `${texto}`
+
+
+    }
+</script>

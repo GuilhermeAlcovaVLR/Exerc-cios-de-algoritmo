@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um limite <input type="number" id="ipt_limite"><br>
+    Insira um divisor <input type="number" id="ipt_divisor"><br>
+    <button onclick="somar()">Somar Números</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    function somar (){
+        let limite = Number(ipt_limite.value);
+        let divisor = Number(ipt_divisor.value);
+        let contador = Number(0);
+        let soma = Number(0);
+        let texto = ``
+        if(limite >= 0){
+        while(contador < limite){
+            contador++
+            if((contador > 1) && (divisor % contador == 0) || (contador % divisor == 0) ){
+                texto += `<br>${contador}`
+                soma = contador + soma
+
+            }
+        }
+        div_exibir.innerHTML = `${texto}<br>
+        Soma dos Múltiplos: ${soma}`
+    }
+    else{
+        alert(`Insira um número válido`)
+    }
+    }
+</script>

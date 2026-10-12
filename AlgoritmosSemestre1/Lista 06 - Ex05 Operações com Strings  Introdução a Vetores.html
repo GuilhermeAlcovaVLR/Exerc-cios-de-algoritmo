@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira uma senha: <input id="ipt_senha" onkeyup="transformar()">
+    <div id="ref_senha"></div>
+
+</body>
+<script>
+    function transformar(){
+        let nsenha = ipt_senha.value.replaceAll(/[ A \ a]/g ,'@')
+        let nsenha2 = nsenha.replaceAll(/[E \ e]/g, '3');
+
+        
+        ref_senha.innerHTML = `${nsenha2}`
+    }
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Isira o quanto você tem de dinheiro<input type="number" id="ipt_dinheiro"><br>
+    Quantas pedras de ouro você possui?<input type="number" id="ipt_pedra"><br>
+    Valor do aluguel<input type="number" id="ipt_aluguel"><br>
+    Quantos meses você pagará por ano<input type="number" id="ipt_meses"><br>
+    Quantos anos você pretende viver<input type="number" id="ipt_anos"><br>
+    <button onclick="analisar()">Analisar estrato</button>
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        let dinheiro = Number(ipt_dinheiro.value);
+        let pedras = Number(ipt_pedra.value);
+        let valor_pedras = Number(10000);
+        let aluguel = Number(ipt_aluguel.value);
+        let meses_ano = Number(ipt_meses.value);
+        let meses = Number(0)
+        let anos_total = Number(ipt_anos.value);
+        let ano = Number(0)
+        let tempo = Number(0)
+        let saldoInicial = Number(``);
+        let saldoFinal = Number(``);
+        let texto = ``
+        while (ano < anos_total) {
+            ano++
+            texto += `<br>Ano - ${ano}<br><br>`
+            if (ano == 1) {
+                saldoFinal = dinheiro
+            }
+
+            while (meses < meses_ano) {
+                meses++
+                tempo++
+                saldoInicial = saldoFinal
+
+                while (saldoInicial < aluguel && pedras > 0) {
+                    pedras--
+                    saldoInicial += valor_pedras
+
+                }
+                if (saldoInicial < aluguel) {
+                    ano = anos_total
+                    meses = meses_ano
+                    texto += `<br>Após ${tempo} meses de aluguel você faliu!!!`
+
+                } else {
+
+                    saldoFinal = saldoInicial - aluguel
+
+                    texto += `Mês ${meses} saldo inicial no banco   R$ ${saldoInicial} - saldo de pedras= ${pedras} – saldo final no banco - R$ ${saldoFinal} <br>`
+                    
+                }
+                
+
+            }
+            if (anos_total == ano && saldoInicial >= aluguel) {
+                        texto += `Foram pagos ${tempo} meses de aluguel e você ficou com R$ ${saldoFinal} no banco e ${pedras} pedras de ouro`
+                    }
+
+
+            meses = 0
+
+
+        }
+        div_exibir.innerHTML = `${texto}`
+
+    }
+</script>

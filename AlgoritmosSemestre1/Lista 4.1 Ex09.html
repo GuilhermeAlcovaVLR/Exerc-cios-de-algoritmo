@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Peso <input id="pes">
+    <br>Altura <input id="alt">
+    <br><button onclick="imc()">CALCULAR IMC</button>
+    <div id="exibir_imc"></div>
+</body>
+<script>
+    function imc() {
+        let peso = Number(pes.value);
+        let altura = Number(alt.value);
+        let cmi = peso / (altura * altura);
+        exibir_imc.innerHTML = `${cmi.toFixed(2)}`;
+
+        if (cmi < 18.5) {
+            exibir_imc.innerHTML += 'Abaixo do peso'
+        } else if (cmi < 24.9) {
+            exibir_imc.innerHTML += 'Peso normal'
+        } else if (cmi < 29.9) {
+            exibir_imc.innerHTML += 'Acima do peso'
+        } else {
+            exibir_imc.innerHTML += 'Cuidado! Risco de obesidade'
+        }
+    }
+</script>
+
+</html>

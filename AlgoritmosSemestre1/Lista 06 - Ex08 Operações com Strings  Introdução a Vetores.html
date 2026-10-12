@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira as letras <input type="text" id="ipt_letra">
+    <br>
+
+    <button onclick="analise()">Verificar letras</button>
+    <div id="exiba"></div>
+</body>
+<script>
+    let secreta = 'santosfc';
+    function analise() {
+        let letra = ipt_letra.value;
+        let letras = letra.toLowerCase();
+        
+        if(secreta.includes(letras)){
+            exiba.innerHTML = `A letra ${letras} aparece na palavra secreta!`
+        }else {
+            exiba.innerHTML = `A letra ${letras} NÃO existe na palavra secreta!`
+        }
+        
+    }
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Digite a quantidade de marinheiros<input type="number" id="ipt_marinheiros"><br><br>
+
+    Digite a quantidade de carne que o luffy tem de reserva<input type="number" id="ipt_carne"><br><br>
+
+
+    <button onclick="luta()">Vem pro pau!</button>
+    <div id="div_exibir"></div>
+
+</body>
+<script>
+    function luta() {
+        let marinheiros = Number(ipt_marinheiros.value);
+        let carne = Number(ipt_carne.value);
+        let quantas_carne = Number(0)
+        let buxa = Number(0);
+        let contador = Number(0)
+        let luffy = Number(100);
+        let marinheiros_forca = Number(5);
+        let frota = marinheiros * marinheiros_forca;
+        
+
+        while (contador < marinheiros) {
+            contador++
+           if (luffy < marinheiros_forca && carne > 0) {
+                quantas_carne++
+                carne--
+                luffy = 100
+                console.log(`hmmmmmmmm`)
+            }
+             if (luffy >= marinheiros_forca) {
+                luffy -= marinheiros_forca
+                buxa++
+               console.log(`buxafoi`)
+            } 
+
+        }
+        if (buxa == marinheiros ) {
+            div_exibir.innerHTML = `Resultado: Luffy saiu vitorioso, comeu ${quantas_carne} carne(s), derrotou ${buxa} marinheiro(s) e sobrou ${luffy} pontos de energia<br><br>
+            <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrrNPijB1AaGQy9nYP-Wd3dj9oPkJUkI7UVwvK8m36tEblrQ6inrT46io&s=10">`
+        } else {
+            div_exibir.innerHTML = `Resultado: Luffy saiu derrotado, comeu ${quantas_carne} carne(s), derrotou ${buxa} marinheiro(s) e sobrou ${luffy} pontos de energia<br><br>
+            <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSisMIzYMLO6AXMnUoZcMTM1JyITm2Aq9uhcFTU0wIJJg&s=10">`
+        }
+
+
+
+    }
+</script>
+
+</html>

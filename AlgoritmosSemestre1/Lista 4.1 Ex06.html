@@ -7,6 +7,7 @@
 </head>
 <body>
 <select id="paulistas">
+    <option value="Selecione um time">Selecionar</option>
     <option value="Salve o Corinthians">CORINTHIANS</option>
     <option value="Salve o alviverde imponente">PALMEIRAS</option>
     <option value="Agora quem dá a bola é o Santos">SANTOS</option>
@@ -20,11 +21,13 @@
         if (times == "Salve o Corinthians"){
             exibir.innerHTML = `<p style = "background-color: black; color:white">${times}</p>`
         } else if (times == "Salve o alviverde imponente"){
-            exibir.innerHTML = `<p style = "background-color: black; color: white;">${times}</p>`
+            exibir.innerHTML = `<p style = "background-color: green; color: white;">${times}</p>`
         } else if (times == "Agora quem dá a bola é o Santos"){
-            exibir.innerHTML = `<p style = "background-color: black; color: white;">${times}</p>`
+            exibir.innerHTML = `<p style = "background-color: white; color: black;">${times}</p>`
         }else if (times == "Salve o Tricolor paulista"){
             exibir.innerHTML = `<p style = "background-color: black; color: red;">${times}</p>`
+        } else{
+            exibir.innerHTML = `Selecione um time`
         }
     }
 </script>

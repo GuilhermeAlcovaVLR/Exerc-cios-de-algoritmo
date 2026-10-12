@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 05 - Operadores Lógicos</title>
+</head>
+<body>
+    Qual a temperatura atual <input type = "number" id="ipt_temp">
+    <br><button onclick="analisar()">Ver situação</button>
+</body>
+<script>
+    function analisar(){
+        let temperatura = Number(ipt_temp.value);
+        
+        if (temperatura >= 21 && temperatura <= 24){
+            alert( "Temperatura confortável :D" )
+        } else {
+            alert("Temperatura DESCONFORTÁVEL :C")
+        }
+    }
+</script>
+</html>

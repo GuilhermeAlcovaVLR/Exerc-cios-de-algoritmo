@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Login: <input type="text" id="ipt_log">
+    <br> Senha: <input type="text" id="ipt_senha">
+    <br> Informação pessoal: <input type="text" id="ipt_pess">
+    <button onclick="autenticar()">Autenticar</button>
+    <div id="exibir"></div>
+</body>
+<script>
+    let tentativas = 3;
+    function autenticar() {
+        let login = ipt_log.value;
+        let senha = ipt_senha.value;
+        let pessoal = ipt_pess.value;
+
+        if (tentativas <= 0){
+            exibir.innerHTML += `<br><p style="color: red;">Usuário BLOQUEADO!
+                Procure seu gerente</p>`
+            return;
+        }else if (login == "ana" && senha == "braga" && pessoal == "louro josé") {
+            exibir.innerHTML = `Usuário autenticado`
+            tentativas = 3
+        } else if (login == "ana" && senha == "braga" && pessoal == "1949") {
+            exibir.innerHTML = `Usuário autenticado`
+            tentativas = 3
+        } else {
+            exibir.innerHTML = `Falha na autenticação`
+            tentativas = tentativas - 1
+            exibir.innerHTML += `<br>Você ainda tem ${tentativas} tentativa(s)`
+        }
+        
+    }
+</script>
+
+</html>

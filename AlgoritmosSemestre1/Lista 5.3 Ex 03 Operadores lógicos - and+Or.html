@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Renda familiar per capita <input type="number" id="ipt_red">
+    <br>Média escolar do aluno <input type="number" id="ipt_med">
+    <br><select id="fed">
+        <option desable select>Atleta federado?</option>
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+    </select>
+    <br><button onclick="bolsa()">Verificar bolsa</button>
+</body>
+<script>
+    function bolsa() {
+        let renda = Number(ipt_red.value);
+        let media = Number(ipt_med.value);
+        let federado = fed.value;
+        if ((renda <= 800 && media >= 8) || (federado == "sim" && media >= 6)) {
+            alert(`Bolsa integral concedida!`)
+        }else{
+            alert(`Bolsa NÃO concedida!`)
+        }
+    }
+</script>
+
+</html>

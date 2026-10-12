@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira uma nova senha:
+    <input id="ipt_senha" onkeyup="analise()">
+    <div id="exiba"></div>
+</body>
+<script>
+    function analise() {
+        let senha = ipt_senha.value;
+        let u_senha = senha.toUpperCase();
+        let l_senha = senha.toLowerCase();
+        let tamanho = senha.length;
+        if((tamanho >= 8) && (senha != u_senha) && (senha != l_senha)){
+            exiba.innerHTML = `Forte`
+        }else if((tamanho >= 8 && senha != u_senha) || (tamanho >= 8 && senha != l_senha) || (l_senha != senha && u_senha != senha)){
+            exiba.innerHTML = `Média`
+        }else if(tamanho >=8 || senha != u_senha || senha != l_senha){
+            exiba.innerHTML = `Fraca`
+        }else {
+            exiba.innerHTML = `Insegura`
+        }
+
+        
+    }
+</script>
+
+</html>

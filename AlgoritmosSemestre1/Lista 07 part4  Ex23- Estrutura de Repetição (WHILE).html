@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    limite inferior: <input type="number" id="ipt_inf"><br>
+    limite superior: <input type="number" id="ipt_sup"><br>
+    Insira um divisor: <input type="number" id="ipt_divisor"><br>
+    <button onclick="divisivel()">Divisível</button>   
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    function divisivel(){
+        let inferior = Number(ipt_inf.value);
+        let superior = Number(ipt_sup.value);
+        let divisor = Number(ipt_divisor.value);
+        let texto = ``
+        if(inferior >= superior || divisor < 3 || divisor > 13){
+            alert(`O intervalo deve ser crescente
+            O divisor deve estar entre 3 e 13`)
+        }else{
+        while(inferior <= superior ){
+            if(inferior % divisor != 0){
+                texto += `<br>${inferior}`
+            }
+            inferior++
+        }
+        }
+        div_exibir.innerHTML = `${texto}`
+
+    }
+</script>

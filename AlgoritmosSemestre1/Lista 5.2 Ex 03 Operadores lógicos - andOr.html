@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="passageiro">
+        <option value="comum">Comum</option>
+        <option value="estudante">Estudante</option>
+        <option value="idoso">Idoso/PNE</option>
+    </select>
+    <br>
+
+    <select id="passagem">
+        <option value="unica">Passagem única</option>
+        <option value="integracao">Passagem integração</option>
+    </select>
+    <br>
+    <button onclick="simular()">Simular preço</button>
+
+    <div id="exibir_pss"></div>
+</body>
+<script>
+    function simular() {
+        let valor = passagem.value;
+        let passageiro = passageiro.value;
+
+
+        if (valor == "unica") {
+            valor = 4.40;
+        } else {
+            valor = 5.90;
+        }
+
+        if (passageiro == "comum") {
+            exibir_pss.innerHTML = `Valor da passagem escolhida: R$${valor} `
+        } else if (passageiro == "estudante") {
+            valor = valor / 2;
+            exibir_pss.innerHTML = `Valor da passagem escolhida: R$${valor} `
+        } else {
+            valor = 0.00
+            exibir_pss.innerHTML = `Valor da passagem escolhida: R$${valor} `
+        }
+    }
+
+</script>
+
+</html>

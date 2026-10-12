@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    limite inferior: <input type="number" id="ipt_inf"><br>
+    limite superior: <input type="number" id="ipt_sup"><br>
+    Insira o divisor: <input type="number" id="ipt_div"><br>
+    <button onclick="conta()">CONTAR</button>
+    <div id="div_exibir"></div>
+
+</body>
+
+</html>
+<script>
+    function conta() {
+        let inferior = Number(ipt_inf.value);
+        let somatudo = Number(0)
+        let superior = Number(ipt_sup.value);
+        let divisor = Number(ipt_div.value);
+        let menor = Number(``)
+        let maior = Number(``)
+        let contagem = Number(0)
+
+        let texto = ``
+        if ((inferior <= 1) || (superior >= 100) || (divisor < 3 || divisor > 10)
+    || (inferior >= superior)) {
+            alert(
+            `O limite inferior deve ser maior que 1
+             O limite superior deveser menor que 100
+             O limite inferior não pode ser maior que o superior
+             O divisor tem que estar entre 3 e 10.`)
+        } else {
+            while(inferior <= superior){
+                if(inferior % divisor == 0){
+                    contagem++
+                    texto += `<br>${inferior}`
+                    somatudo += inferior
+                    maior = `${inferior}`
+
+                    if (contagem == 1){
+                        menor = `${inferior}`
+                    }
+                    
+
+                }
+                    inferior++          
+
+            }
+    
+    let media = somatudo / contagem
+    div_exibir.innerHTML = `${texto}`
+    div_exibir.innerHTML += `
+    <br><br><b>QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${contagem} <br><br>
+
+    SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${somatudo} <br><br>
+
+    MÉDIA DOS NÚMEROS EXIBIDOS: ${media.toFixed(2)} <br><br> 
+
+    MAIOR NÚMERO EXIBIDO: ${maior}  <br><br>
+
+    MENOR NÚMERO EXIBIDO: ${menor}</b>` 
+        }
+
+    }
+</script>

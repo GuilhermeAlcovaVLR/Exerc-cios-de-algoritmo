@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Escreva uma frase:
+    <br> <input id="ipt_frase">
+    <br> Escreva uma palavra:
+    <br> <input id="ipt_palavra">
+    <button onclick="analise()">Analisar frase</button>
+    <div id="exiba"></div>  
+</body>
+<script>
+    function analise(){
+        let frase = ipt_frase.value
+        let palavra = ipt_palavra.value
+        if (frase.startsWith(palavra) && frase.endsWith(palavra)){
+            exiba.innerHTML = `A frase começa e termina com ${palavra}!`
+        }else if (frase.startsWith(palavra)){
+            exiba.innerHTML = `A frase começa com ${palavra}!`
+        }else if (frase.endsWith(palavra)){
+            exiba.innerHTML = `A frase termina com ${palavra}!`
+        }else {
+            exiba.innerHTML = `A frase nem começa nem termina com ${palavra}!`
+
+        }
+    }
+</script>
+</html>

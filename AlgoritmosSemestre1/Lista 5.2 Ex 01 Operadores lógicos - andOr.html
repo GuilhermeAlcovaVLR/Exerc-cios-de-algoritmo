@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nota do atendimento <input type="number" id="nt">
+    <br><button onclick="avaliar()">Avaliar atendimento</button>
+</body>
+<script>
+    function avaliar(){
+        let nota = Number(nt.value);
+        if (nota < 0 || nota > 10){
+            alert(`nota invalida`)
+        } else if (nota >= 0 && nota < 5){
+            alert(`Não aprovado`)
+        } else if (nota >= 5 && nota <= 6){
+            alert(`Neutro`)
+        }else {
+            alert(`Aprovado`)
+        }
+    }
+</script>
+</html>

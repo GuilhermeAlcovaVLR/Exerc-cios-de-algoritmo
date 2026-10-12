@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira seus filmes favoritos : <input type="text" id="ipt_filmes"><br>
+    <button onclick="listar()">Cadastrar</button>
+    <div id="div_exibir"></div>
+</body>
+<script>
+    let lista = []
+    function listar() {
+        let filmes = ipt_filmes.value;
+        lista.push(filmes);
+        if(lista.length == 0){
+        div_exibir.innerHTML = `${lista[0]}`;
+    }else{
+        div_exibir.innerHTML += `<br>${lista[lista.length - 1]}`
+    }
+
+    }
+</script>
+
+</html>

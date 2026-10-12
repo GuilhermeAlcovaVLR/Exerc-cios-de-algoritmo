@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira a Distância inicial semanal do aluno (em km)<input type="number" id="ipt_inicio"><br>
+    Insira o percentual de aumento semanal desejado (de 0 a 100)<input type="number" id="ipt_aumento"><br>
+    Insira a meta de distância semanal (em km)<input type="number" id="ipt_meta"><br>
+    Insira o número máximo de semanas do plano<input type="number" id="ipt_semanas"><br>
+    <button onclick="plano()">Gerar Planilha</button>
+    <div id="div_exibir"></div>
+
+</body>
+<script>
+    function plano() {
+        let inicial = Number(ipt_inicio.value);
+        let aumento = Number(ipt_aumento.value) / 100;
+        let meta = Number(ipt_meta.value);
+        let semanas = Number(ipt_semanas.value);
+
+        let contador = Number(0);
+        let texto = ``
+        let novo = Number(``)
+        let acumulo = Number(``)
+
+        let contagem_leve = Number(0)
+        let contagem_moderado = Number(0)
+        let contagem_intenso = Number(0)
+        let contagem_descanso = Number(0)
+
+        let treino_recuperacao = Number(``);
+        let percentual_meta = Number(``)
+
+
+
+        //if (inicial <= 0 || aumento > 10 || aumento < 1 || meta < inicial || semanas < 1 || semanas > 24) {
+        //  alert(`A distância inicial não pode ser menor ou igual a 0;
+        //O percentual de aumento não pode ser menor que 1 ou maior que 10 (regra dos 10%);
+        //A meta não pode ser menor ou igual à distância inicial;
+        //O número de semanas não pode ser menor que 1 ou maior que 24.`)
+        //} else {
+        while (inicial < meta && contador < semanas) {
+            contador++
+            percentual_meta =  (inicial / meta) * 100
+            if (contador % 4 == 0) {
+                contagem_descanso++
+                inicial -= novo
+
+                treino_recuperacao = inicial * (70/100);
+                percentual_meta = (treino_recuperacao / meta) * 100
+                texto += `<br>SEMANA ${contador} - TREINO DE RECUPERAÇÃO - ${treino_recuperacao.toFixed(2)} km (${percentual_meta.toFixed(2)}% da meta)`
+
+            } else if (percentual_meta < 50) {
+                contagem_leve++
+
+                texto += `<br>SEMANA ${contador} - TREINO LEVE - ${inicial.toFixed(2)} km (${percentual_meta.toFixed(2)}% da meta)`
+            } else if (percentual_meta < 80) {
+                contagem_moderado++
+
+                texto += `<br>SEMANA ${contador} - TREINO MODERADO - ${inicial.toFixed(2)} km (${percentual_meta.toFixed(2)}% da meta)`
+            } else {
+                contagem_intenso++
+
+                texto += `<br>SEMANA ${contador} - TREINO INTENSO - ${inicial.toFixed(2)} km (${percentual_meta.toFixed(2)}% da meta)`
+            }
+            novo = inicial * aumento
+            inicial += novo
+
+        }
+        let percentual_recuperacao = ( contagem_descanso / contador) * 100;     
+        let percentual_leve = ( contagem_leve / contador) * 100;
+        let percentual_moderado = ( contagem_moderado / contador) * 100;
+        let percentual_intenso = ( contagem_intenso/contador) * 100;
+        div_exibir.innerHTML = `${texto}<br>
+        Proporção dos Treinos: Leve ${percentual_leve.toFixed(2)}% | Moderado ${percentual_moderado.toFixed(2)}% | Intenso ${percentual_intenso.toFixed(2)}% | Descanso ${percentual_recuperacao.toFixed(2)}%
+
+`
+
+    }
+
+    // }
+</script>
+
+</html>

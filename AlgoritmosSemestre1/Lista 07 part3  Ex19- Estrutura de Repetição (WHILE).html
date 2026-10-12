@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira um número <input type="number" id="ipt_num"><br>
+    <button onclick="ver()">Ver divisores</button>
+    <div id="div_exibir"></div>
+
+</body>
+
+</html>
+<script>
+    function ver() {
+        let numero = Number(ipt_num.value)
+        let contador = Number(0)
+        let divisiveis = Number(0)
+        let texto = ``
+       
+        
+            while (contador < numero){
+                contador++
+                if(numero % contador == 0){
+                    divisiveis++
+                    texto += `<br>${contador}`
+                }
+
+            }
+        
+        div_exibir.innerHTML = `${texto}`
+        if(divisiveis == 2){
+            div_exibir.innerHTML += `<br>O número ${numero} é primo`
+        }
+    }
+
+    
+</script>

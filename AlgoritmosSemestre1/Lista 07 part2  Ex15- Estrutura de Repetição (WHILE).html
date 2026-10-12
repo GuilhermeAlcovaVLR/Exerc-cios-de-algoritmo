@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Inicio: <input type="number" id="ipt_inicio"><br>
+    Fim: <input type="number" id="ipt_fim"><br>
+    <button onclick="curto()">Curto 3 e 5</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    function curto(){
+        let inicio = Number(ipt_inicio.value);
+        let fim = Number(ipt_fim.value);
+        let texto = ``
+        while(inicio < fim){
+            inicio++
+            if((inicio % 5 == 0) && (inicio % 3 == 0)){
+                texto += `<br>É TRI!É PENTA!`
+            }else if(inicio % 5 == 0){
+                texto += `<br>É PENTA!`
+            }else if (inicio % 3 == 0){
+                texto += `<br>É TRI!`
+            }else{
+                texto += `<br>${inicio}`
+            }
+        }
+        div_exibir.innerHTML = `${texto}`
+
+    }
+</script>

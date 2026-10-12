@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Macarons: <input type="number" id="ipt_macarons"><br>
+    Brigadeiros Gourmets: <input type="number" id="ipt_brigadeiros"><br>
+    Cupcakes: <input type="number" id="ipt_cupcakes"><br>
+    Cheesecakes: <input type="number" id="ipt_cheesecakes"><br>
+    <br><br>
+    Preço dos Macarons: <input type="number" id="ipt_macarons_preco"><br>
+    Preço dos Brigadeiros Gourmets: <input type="number" id="ipt_brigadeiros_preco"><br>
+    Preço Cupcakes: <input type="number" id="ipt_cupcakes_preco"><br>
+    Preço Cheesecakes: <input type="number" id="ipt_cheesecakes_preco"><br>
+    <br><br>
+    <button onclick="verificar()">verificar vendas</button>
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function verificar(){
+        let macarons = Number(ipt_macarons.value);
+        let brigadeiro = Number(ipt_brigadeiros.value);
+        let cupcakes = Number(ipt_cupcakes.value);
+        let cheesecakes = Number(ipt_cheesecakes.value);
+
+        let vendas = macarons + brigadeiro + cupcakes + cheesecakes
+
+        let preco_macarons = Number(ipt_macarons_preco.value);
+        let preco_brigadeiro = Number(ipt_brigadeiros_preco.value);
+        let preco_cupcakes = Number(ipt_cupcakes_preco.value);
+        let preco_cheesecakes = Number(ipt_cheesecakes_preco.value);
+
+        let valor_macarons = preco_macarons * macarons;
+        let valor_brigadeiro = preco_brigadeiro * brigadeiro;
+        let valor_cupcakes = preco_cupcakes * cupcakes;
+        let valor_cheesecakes = preco_cheesecakes * cheesecakes;
+
+        let valor_total = valor_macarons + valor_brigadeiro + valor_cupcakes + valor_cheesecakes;
+
+        let percentual_macarons = (macarons / vendas) * 100;
+        let percentual_brigadeiro = (brigadeiro / vendas) * 100;
+        let percentual_cupcakes = (cupcakes / vendas) * 100;
+        let percentual_cheesecakes = (cheesecakes / vendas) * 100;
+
+        let texto = ``
+
+        let contador = Number(0)
+        let uni_venda = Number(0)
+        
+
+        if(macarons < 0 || brigadeiro < 0 || cupcakes < 0 || cheesecakes < 0 || preco_macarons < 0 || preco_brigadeiro < 0 || preco_cupcakes < 0 || preco_cheesecakes < 0){
+            alert(`Não é possível inserir valores negativos `)
+        }else{
+            while(contador < macarons){
+                contador++
+                uni_venda++
+                texto += `Venda ${uni_venda} <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS68ID0xtnFiaqv-Wkxf08ClaFrCI-kcBQAbi6ovu1Ijw&s=10"> macaron - ${preco_macarons}<br>`
+            }
+            contador = 0 
+            while(contador < brigadeiro){
+                contador++
+                uni_venda++
+                texto += `Venda ${uni_venda} <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhiwlVoAmvrvyhKdiwhfZGOyOXFM01hmgZFPupum4Y4A&s"> brigadeiro - ${preco_brigadeiro}<br>`
+            }
+            contador = 0 
+            while(contador < cupcakes){
+                contador++
+                uni_venda++
+                texto += `Venda ${uni_venda} <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrUmTD5kb8gGbtOAXJcOUVHPEXzpQWSTnAU2DFyUsasw&s"> cupcake - ${preco_cupcakes}<br>`
+            }
+            contador = 0 
+            while(contador < cheesecakes){
+                contador++
+                uni_venda++
+                texto += `Venda ${uni_venda} <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8SPK3t0aZskg-xr-9KtALw8XA50wbO6o8a_mA-OOrwA&s=10"> cheesecakes - ${preco_cheesecakes}<br>`
+            } 
+        }
+        
+        div_exibir.innerHTML = `Total de Vendas: ${vendas}
+        <br>${texto}`
+        div_exibir.innerHTML += `<br><br>Com a quantidade de ${macarons} Macarons (${percentual_macarons.toFixed(2)}% do total), ${brigadeiro} Brigadeiros (${percentual_brigadeiro.toFixed(2)}% do total), ${cupcakes} Cupcakes (  ${percentual_cupcakes.toFixed(2)}% do total) e ${cheesecakes} Cheesecakes (${percentual_cheesecakes.toFixed(2)}% do total), a venda totalizará R$${valor_total.toFixed(2)}`
+
+    }
+</script>
+
+</html>

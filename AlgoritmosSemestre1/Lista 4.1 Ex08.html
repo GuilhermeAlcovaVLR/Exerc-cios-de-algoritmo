@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Meta de economia <input type="number" id="street"> <br>
+    Quanto tem guardado <input type="number" id="wall"> <br>
+    <button onclick="meta()">Analisar economia</button>
+    <div id="exi_economia"></div>
+
+</body>
+<script>
+    function meta() {
+        let hey = Number(street.value);
+        let investidor = Number(wall.value);
+        let dif = investidor - hey;
+        if (investidor >= hey) {
+            exi_economia.innerHTML = `Parabéns, meta alcançada!`
+
+            if (investidor > hey) {
+                exi_economia.innerHTML += ` <br>Meta ultrapassada em ${dif}`
+            }
+        } else {
+            exi_economia.innerHTML = `Força! Ainda em busca da meta!<br> Falta ${dif * (-1)}`
+        }
+
+
+    }
+</script>
+
+</html>

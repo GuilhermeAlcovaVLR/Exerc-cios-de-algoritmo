@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio de Algoritmos — Cadastro de Alunos de Hogwarts
+
+    </title>
+</head>
+
+<body>
+    <h1>Cadastro de Hogwarts</h1>
+
+    <h2>- Nome do aluno: </h2> <input type="text" id="aluno">
+
+    <h2>Idade: </h2> <input type="number" id="idd">
+
+    <h2>Altura: </h2> <input type="number" id="alt">
+
+    <h2>Endereço: </h2> <input type="text" id="end">
+
+    <br><br><select id="casa">
+        <option value="">SELECIONE UMA CASA</option>
+        <option value="gri">GRIFINÓRIA</option>
+        <option value="son">SONSERINA</option>
+        <option value="luf">LUFA-LUFA</option>
+        <option value="cor">CORVINAL</option>
+    </select>
+
+    <button onclick="validacao()">Validar Aluno</button>
+
+    <div id="exibir_msg"></div>
+
+</body>
+<script>
+    function validacao() {
+        let camposVazios = [];
+
+        let nome = aluno.value;
+        let idade = idd.value;
+        let altura = alt.value;
+        let endereco = end.value;
+        let dorm = casa.value;
+        let vazio
+
+        if (nome == "") {
+            camposVazios.push("nome");
+            alert(`Opa, preencha o nome do aluno`);
+        }
+        if (idade == "") {
+            camposVazios.push("idade");
+            alert(`Opa, sem idade não tem como estudar...`);
+        }
+        if (endereco == "") {
+            camposVazios.push("endereco");
+            alert(`Opa, sem endereço, não é possível enviar a carta de convite`);
+        }
+        if (dorm == "") {
+            camposVazios.push("dorm")
+            alert(`Não quer entrar em nenhuma casa??`)
+        }
+        if (altura == "") {
+            camposVazios.push("altura")
+            alert(`Opa, o aluno tem uma altura`)
+        }
+
+        if (camposVazios.length > 0) {
+            exibir_msg.innerHTML = `<p style = "color: red;">Os seguintes campos estão vazios: ${camposVazios.join(", ")}</p>`
+        }
+
+
+        if (camposVazios.length == 0) {
+
+            if (altura <= 0) {
+                exibir_msg.innerHTML = "Você é invisível?"
+            } else if (altura > 2.0) {
+                exibir_msg.innerHTML = "Você é filho de gigante?"
+            } else if (idade < 12) {
+                alert("Você não tem idade mínima para estudar em Hogwarts ainda. Mas não desista!")
+            }else {
+                exibir_msg.innerHTML = `Uia, você é um aluno perfeito para estudar em Hogwarts 
+            <br><img src="https://i.pinimg.com/564x/e3/81/50/e38150bf0589eebde529d9be8b6e0308.jpg">
+            <b>Parabéns, você foi aceito e pode estudar em Hogwarts</b>`
+            }
+        }
+
+    }
+
+</script>
+
+</html>

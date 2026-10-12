@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Inicio<input type="number" id="ipt_inicio"><br>
+    Fim<input type="number" id="ipt_fim"><br>
+    <button onclick="pares()">S2 Pares</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    function pares(){
+        let inicio = Number(ipt_inicio.value);
+        let fim = Number(ipt_fim.value);
+        let texto = ``
+        
+        while(inicio <= fim){
+        
+            if (inicio % 2 == 0){
+                texto += `<br>${inicio}`
+
+                inicio = inicio + 2
+            }else{
+                inicio++
+
+                
+            }
+
+        }
+        div_exibir.innerHTML = `${texto}`
+    }
+</script>

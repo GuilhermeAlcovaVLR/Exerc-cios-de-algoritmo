@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira seus filmes favoritos 1 por vez: <input type="text" id="ipt_filmes">
+    <button onclick="cadastrar()">Cadastrar filme</button> <br>
+    <button onclick="ver()">Ver Favoritos</button>
+    <div id="div_exibir"></div>
+</body>
+<script>
+    let lista = [];
+    function cadastrar(){
+        let filme = ipt_filmes.value;
+        lista.push(filme);
+        div_exibir.innerHTML = `${filme} adiconado com sucesso`
+        ipt_filmes.value = ``;
+
+    }
+    function ver(){
+        let total = lista.length;
+        div_exibir.innerHTML = `Total: ${total}<br>
+        O filme que você mais gosta é: ${lista[0]}<br>
+         E desses, o que menos gosta é ${lista[lista.length - 1]} `;
+
+
+    }
+</script>
+</html>

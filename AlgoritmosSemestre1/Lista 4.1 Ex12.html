@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número <input type="number" id="n">
+    <br><button onclick="five()">Múltiplo de 5</button>
+    <div id="exibir"></div>
+</body>
+<script>
+    function five(){
+        let n1 = Number(n.value);
+        let conf = n1%5;
+        if(n1 <=0){
+            exibir.innerHTML = `Digite um numero maior que 0`
+        } else if (conf == 0){
+        exibir.innerHTML = `Perfeito, esse número é múltiplo de cinco`
+        } else if (conf == 1){
+        exibir.innerHTML = `Vich, sobrou um`
+        } else if (conf == 2){
+        exibir.innerHTML = `Para esse o resto é dois`
+        } else if (conf == 3){
+        exibir.innerHTML = `Com mais dois daria certo`
+        } else if (conf == 4){
+        exibir.innerHTML = `Só faltou 1 para ser múltiplo de 5`
+        }
+    }
+</script>
+</html>

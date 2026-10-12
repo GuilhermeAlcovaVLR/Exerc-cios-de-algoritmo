@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Modo de pagamento:
+    <select id="pag">
+        <option value="din">Dinheiro</option>
+        <option value="deb">Cartão de Débito</option>
+        <option value="cred">Cartão de crédito</option>
+        <option value="bol">Boleto</option>
+    </select>
+    <button onclick="modo()">Analisar compra</button>
+</body>
+<script>
+    function modo() {
+        let forma = pag.value
+
+
+        if (forma == "din" || forma == "deb") {
+            alert(`Você terá que pagar a vista`)
+        } else {
+            alert(`Pagamento poderá ser parcelado`)
+        }
+    }
+</script>
+
+</html>

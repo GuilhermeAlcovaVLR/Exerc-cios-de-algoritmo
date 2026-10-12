@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual o seu humor hoje?
+    <br>
+    <select id="humor">
+        <option value="feliz">Feliz</option>
+        <option value="triste">Triste</option>
+        <option value="bravo">Bravo</option>
+        <option value="surpreso">Surpreso</option>
+        <option value="cansado">Cansado</option>
+    </select>
+    <br><button onclick="mostra()">Mostrar humor</button>
+    <div id="exibir_humor"></div>    
+</body>
+<script>
+    function mostra(){
+        let hu = humor.value
+        if (hu == "feliz"){
+            exibir_humor.innerHTML = `<img src="https://cdn.pixabay.com/photo/2020/12/27/20/25/smile-5865209_640.png">`
+
+        } else if (hu == "triste"){
+            exibir_humor.innerHTML = `<img src = "https://images.emojiterra.com/google/android-12l/512px/1f625.png">`
+
+        }else if (hu == "bravo"){
+            exibir_humor.innerHTML = `<img src = "https://static.vecteezy.com/ti/vetor-gratis/p1/10465343-cara-de-emoji-bravo-gratis-vetor.jpg">`
+
+        }else if (hu == "surpreso" ){
+        exibir_humor.innerHTML = `<img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvztIY0eqr6tDlSHI3fRSlGEunVzC84BtUyMDx5p8ZAg&s=10">`
+
+        }else{
+            exibir_humor.innerHTML = `<img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT53MOswsyr2EqRSyQvUHN7rQTaf08d2I_OXP5xmK8gKQ&s=10">`
+        }
+    }
+</script>
+</html>

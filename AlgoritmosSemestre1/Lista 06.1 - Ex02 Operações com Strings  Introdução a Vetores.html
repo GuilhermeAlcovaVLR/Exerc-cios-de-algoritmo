@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Destino de viagem: <input type="text" id="ipt_vig"> <br>
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="primeiro()">Primeira viagem</button>
+    <button onclick="terceira()">Terceira viagem</button>
+    <button onclick="ultima()">Ultima viagem</button>
+    <div id="exiba"></div>
+
+</body>
+<script>
+    let destino = []
+    function adicionar() {
+        let local = ipt_vig.value;
+        destino.push(local)
+        exiba.innerHTML = `${local } adicionado com sucesso`
+        ipt_vig.value = ``
+
+    }
+    function primeiro() {
+        if (destino > '-1') {
+            exiba.innerHTML = `${destino[0]}`
+        } else {
+            exiba.innerHTML = `Ainda não viajou`
+        }
+    }
+    function terceira() {
+        if (destino > '1') {
+            exiba.innerHTML = `${destino[2]}`
+        } else {
+            exiba.innerHTML = `Ainda não fez a terceira viagem`
+        }
+    }
+    function ultima() {
+        if (destino > '-1') {
+            exiba.innerHTML = `${destino[destino.length - 1]}`
+        } else {
+            exiba.innerHTML = `Ainda não viajou`
+        }
+    }
+
+
+
+</script>
+
+</html>

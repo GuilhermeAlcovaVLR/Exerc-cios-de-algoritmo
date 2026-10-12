@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Renda mensal <input type="number" id="ipt_mes">
+    <br>Score crédito <input type="number" id="ipt_cred">
+    <br>Anos como correntista <input type="number" id="ipt_anos">
+    <br><select id="sn">
+        <option selected desable>Possui dívidas em aberto?</option>
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+    </select>
+    <br><button onclick="analise()">ANALISAR CRÉDITO</button>
+</body>
+<script>
+    function analise(){
+        let mensal= Number(ipt_mes.value);
+        let score = Number(ipt_cred.value);
+        let anos = Number(ipt_anos.value);
+
+        if((mensal >= 3000 && score >= 600) || (anos > 5 && sn.value == "nao") ){
+            alert(`Empréstimo aprovado!`)
+        }else{
+            alert(`Empréstimo negado!`)
+        }
+    }
+</script>
+</html>

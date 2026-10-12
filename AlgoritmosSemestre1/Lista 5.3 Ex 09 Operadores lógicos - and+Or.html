@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="opt_plano">
+        <option disabled selected>Plano cadastrado</option>
+        <option>Premium</option>
+        <option>Básico</option>
+    </select>
+    <br>
+    Hora atual <input type="number" id="ipt_hr">
+    <br>
+    <select id="opt_bio">
+        <option disabled selected>CHECK-IN BIOMÉTRICO VÁLIDO?</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+    </select>
+    <br>
+    <button onclick="liberar()">Liberar catraca</button>
+</body>
+<script>
+    function liberar(){
+        let plano = opt_plano.value;
+        let hora = Number(ipt_hr.value);
+        let check = opt_bio.value;
+        if(hora < 0 || hora > 23){
+            alert(`Insira um horário válido`)
+        } else if ((plano == "Premium" && check == "SIM") || 
+        (check=="SIM" && plano == "Básico" && hora >= 6 && hora <= 22 )){
+            alert(`Acesso LIBERADO`)
+        }else{
+            alert(`Acesso NEGADO`)
+        }
+    }
+</script>
+</html>

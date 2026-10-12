@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="opt_curso">
+        <option disabled selected>Concluiu o curso básico?</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+    </select>
+    <br>
+    Média <input type="number" id="ipt_med">
+    <br>
+    Nota no teste de nivelamento <input type="number" id="ipt_test">
+    <br>
+    <select id="opt_doc">
+        <option disabled selected>Documentação completa</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+    </select>
+    <br>
+    <button onclick="matricula()">Verificar matrícula</button>
+</body>
+<script>
+    function matricula(){
+        let concluiu = opt_curso.value;
+        let media = Number(ipt_med.value);
+        let teste = Number(ipt_test.value);
+        let documento = opt_doc.value;
+
+            if((documento == "SIM") &&  (concluiu == "SIM" && media >= 7 || (teste >= 8))){
+                alert(`Matrícula liberada para o curso avançado`)
+            }else{
+                alert(`Matrícula NÃO liberada`)
+
+            }
+    }
+</script>
+</html>
