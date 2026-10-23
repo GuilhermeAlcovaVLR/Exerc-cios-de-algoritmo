@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantos depósitos fez no banco?<input type="number" id="ipt_banco"><br>
+    Valor de cada deposito<input type="number" id="ipt_dep"><br>
+    <button onclick="grana()">Acompanhar grana</button>
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function grana(){
+        let banco = Number(ipt_banco.value);
+        let deposito = Number(ipt_dep.value);
+        let montante = Number(0)
+        let texto = ``
+
+        for(let contador = 1; contador <= banco; contador++){
+            montante += deposito
+            texto += `${contador}º Mês: R$ ${montante}<br><br>`
+
+            if (contador == banco){
+                texto += `Total guardado: R$${montante}`
+            }
+            
+        }
+        div_exibir.innerHTML = `${texto}`
+    }
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" id="ipt_n1" />
+<input type="text" id="ipt_n2" />
+<button onclick="multiplicar()">MULTIPLICAR</button>
+<button onclick="divisão()">DIVIDIR</button>
+<button onclick="subtrair()">SUBTRAIR</button>
+<button onclick="soma()">SOMA</button>
+<div id="div_exibir"></div> 
+   
+</body>
+
+<script>
+    function multiplicar() {
+        let n1= Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 * n2
+        let mensagem = `O RESULTADO DA MULTIPLICAÇÃO É: ${resultado} `
+        div_exibir.innerHTML = mensagem
+    
+        }
+function divisão(){
+div_exibir.innerHTML = 
+        "O RESULTADO DA Divisão É: " + ipt_n1.value / ipt_n2.value
+}
+function subtrair(){
+    div_exibir.innerHTML = 
+    "O RESULTADO DA DIVISÃO É: " + (ipt_n1.value - ipt_n2.value)
+}
+function soma (){
+    div_exibir.innerHTML =
+    "O RESULTADO DA SOMA É: " + (Number(ipt_n1.value) + Number(ipt_n2.value))
+}
+</script>
+</html>

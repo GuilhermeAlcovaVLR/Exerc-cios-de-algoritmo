@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        Quantos depósitos fez no banco?<input type="number" id="ipt_banco"><br>
+        Valor de cada deposito<input type="number" id="ipt_dep"><br>
+        <button onclick="grana()">Acompanhar grana</button>
+        <div id="div_exibir"></div>
+    </body>
+    <script>
+        function grana() {
+            let banco = Number(ipt_banco.value);
+            let deposito = Number(ipt_dep.value);
+            let juros = Number(``);
+            let montante = Number(0)
+            let texto = ``
+
+            for (let contador = 1; contador <= banco; contador++) {
+                juros = 0
+                if (contador % 3 == 0) {
+                    montante += (deposito + juros)
+                    juros = montante / 100
+
+                    montante += juros
+
+
+                    texto += `${contador}º Mês: R$ ${montante.toFixed(2)}
+                    <img src = "https://imagepng.org/wp-content/uploads/2017/10/estrela-1.png" width = 20px heigth = 20px> <br><br>`
+                }else {
+                    montante += deposito
+
+                    texto += `${contador}º Mês: R$ ${montante.toFixed(2)}<br><br>`
+
+                }
+                if(contador == banco){
+                    texto += `Total guardado: ${montante.toFixed(2)}`
+                }
+            }
+
+
+
+            div_exibir.innerHTML = `${texto}`
+        }
+
+    </script>
+
+    </html>
+</body>
+
+</html>
