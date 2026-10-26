@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="contar()">Contar...</button>
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function contar(){
+        let nn = Number(0)
+         let sucessivos = ``
+        for(let nn = 1; nn <= 15; nn++){
+           
+        sucessivos +=` ${nn}`
+
+        }           
+        div_exibir.innerHTML =` ${sucessivos}`
+
+    }
+</script>
+</html>

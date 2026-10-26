@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="par()">S2 Pares</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    function par(){
+        let dois = 2 
+        let texto = ``
+        for(let multiplicador = 0; multiplicador <= 50; multiplicador++){
+            texto += `<br>${dois * multiplicador}`
+        }
+        div_exibir.innerHTML = `${texto}<br>`
+    }
+</script>

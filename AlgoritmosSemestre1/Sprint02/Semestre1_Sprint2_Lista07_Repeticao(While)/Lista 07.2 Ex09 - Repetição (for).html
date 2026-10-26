@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira um número entre 0 e 200
+    <input type="number" id="ipt_num"><br>
+    <button onclick="multiplos()">Viva o 7</button>
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+<script>
+    function multiplos() {
+        let fim = Number(ipt_num.value);
+        let texto = ``
+        if (fim < 0 || fim > 200) {
+            alert(`Insira um número válido`)
+        } else {
+            for (let inicio = Number(0);
+                inicio < fim; inicio = inicio + 7
+            ) {
+
+                if (inicio <= fim) {
+
+                    texto += `<br>${inicio}`
+                }
+            }
+        }
+        div_exibir.innerHTML = `${texto}`
+
+    }
+</script>
