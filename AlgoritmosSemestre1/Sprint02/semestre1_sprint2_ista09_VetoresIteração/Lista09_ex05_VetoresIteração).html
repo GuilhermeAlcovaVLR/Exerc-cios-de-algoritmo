@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nome do busao<input type="text" id="ipt_busao"><br>
+    <button onclick="gravar()">Gravar busão</button>
+    <button onclick="pesquisa()">Pesquisar</button>
+    <div id="div_exibir"></div>
+</body>
+
+<script>
+    let listaBusao = [];
+
+    function gravar() {
+        let busao = ipt_busao.value;
+        listaBusao.push(busao);
+        let mensagem = ``;
+        for (i = listaBusao.length - 1; i >= 0; i--) {
+            mensagem += `${listaBusao[i]}<br>`
+        }
+        div_exibir.innerHTML = `${mensagem}`
+    }
+    function pesquisa() {
+        let conta = 0;
+        let linhaPesquisa = ipt_busao.value
+        let texto = ``
+        let contagem = Number(0)
+        let posicao = []
+        for (a = 0; a < listaBusao.length; a++) {
+            if (listaBusao[a] === linhaPesquisa) {
+                contagem++
+                posicao.push(a + 1)
+            }
+
+            if (contagem === 0) {
+                texto = `Você nunca pegou essa linha`
+
+            } else {
+                texto = `Você já pegou essa linha ${contagem} vezes, nessa ordem: ${posicao} `
+
+            }
+
+            div_exibir.innerHTML = `${texto}`
+        }
+    }
+</script>
+
+</html>
