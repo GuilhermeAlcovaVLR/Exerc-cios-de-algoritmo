@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Digite um número qualquer<input type="number" id="ipt_numero">
+    <br><button onclick="analisar()">Analisar histórico</button>
+    <div id="div_exibir"></div>
+</body>
+<script>
+let listaNumero = []
+
+function analisar(){
+    let insercao = Number(ipt_numero.value);
+    listaNumero.push(insercao);
+    let maior = listaNumero[0];
+    let menor = listaNumero[0];
+
+    let texto = ``
+    for(let i = 0; i < listaNumero.length; i++){  
+            if(insercao > maior){
+                maior = insercao
+            }
+            if (insercao < menor){
+                menor = insercao
+            }
+
+        texto += `${i + 1}º Número: ${listaNumero[i]}<br><br>
+        Maior: ${maior}<br><br>
+        Menor: ${menor}<br><br><br>`
+
+    }
+    div_exibir.innerHTML = `${texto}`
+}
+
+</script>
+
+</html>

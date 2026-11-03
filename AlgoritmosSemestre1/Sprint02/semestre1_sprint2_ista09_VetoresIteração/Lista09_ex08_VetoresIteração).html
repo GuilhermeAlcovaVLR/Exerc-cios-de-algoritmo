@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="sl_resultado">
+        <option value="v">Vitória</option>
+        <option value="e">Empate</option>
+        <option value="d">Derrota</option>
+    </select><br><br>
+
+    <button onclick="registro()">Registrar Jogo</button><br><br>
+
+    Qual jogo deseja saber o resultado<input type="number" id="ipt_pesquisa" onkeyup="pesquisar()">
+    <div id="div_exibir"></div>
+
+</body>
+<script>
+    let jogos = []
+    let vitoria = []
+    let derrota = []
+    let empate = []
+    let pontuacao = Number(0)
+
+    function registro() {
+        let resultado = sl_resultado.value;
+        jogos.push(resultado)
+        if (resultado === "v") {
+            vitoria.push(resultado)
+            pontuacao += 3
+        } else if (resultado === "e") {
+            empate.push(resultado)
+            pontuacao += 1
+        } else {
+            derrota.push(resultado)
+            pontuacao += 0
+
+        }
+        let pontos_disputados = jogos.length * 3;
+        let aproveitamento = (pontuacao / pontos_disputados) * 100;
+        div_exibir.innerHTML = ` O time teve: ${vitoria.length} vitórias, 
+        ${empate.length} empates, 
+        ${derrota.length} derrotas  <br><br>
+
+      Pontuação total: ${pontuacao} pontos <br><br> 
+
+      Aproveitamento: ${aproveitamento}%  `
+    }
+
+
+    function pesquisar() {
+        let pesquisaDigitada = Number(ipt_pesquisa.value);
+        let indiceReal = pesquisaDigitada - 1; // Transforma o 1º jogo (digitado) no índice 0 do vetor
+
+        if (ipt_pesquisa.value === "") {
+            div_exibir.innerHTML = "";
+            return;
+        }
+
+        if (indiceReal >= 0 && indiceReal < jogos.length) {
+            let resultadoDoJogo = jogos[indiceReal];
+            let statusTexto = "";
+
+            if (resultadoDoJogo === 'v') {
+                statusTexto = "Ganhou";
+            } else if (resultadoDoJogo === 'd') {
+                statusTexto = "Perdeu";
+            } else {
+                statusTexto = "Empatou";
+            }
+
+            div_exibir.innerHTML = `No ${pesquisaDigitada}º jogo, o time ${statusTexto}`;
+        } else {
+            div_exibir.innerHTML = `Não foi cadastrado um ${pesquisaDigitada}º jogo`;
+        }
+    }
+</script>
+
+</html>
