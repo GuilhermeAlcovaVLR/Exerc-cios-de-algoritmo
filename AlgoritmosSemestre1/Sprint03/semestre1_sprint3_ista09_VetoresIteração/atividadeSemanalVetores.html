@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Serviço<input type="text" id="ipt_svr"><br>
+    Valor<input type="number" id="ipt_vlr"><br>
+
+    <button onclick="cadastro()">Cadastrar serviço e valor</button>
+
+    <div id="div_exibir"></div><br><br>
+
+    <input type="number" id="ipt_ajuste">
+    <button onclick="ajuste()">AJUSTAR</button>
+    <div id="div_ajuste"></div><br><br>
+
+    <button onclick="encerrar()">ENCERRAR</button>
+    <div id="div_encerrar"></div>
+
+
+</body>
+<script>
+    let listaServico = [];
+    let listaPreco = [];
+    let valorTotal = Number(0)
+
+
+    function cadastro() {
+        let servico = ipt_svr.value;
+        let preco = Number(ipt_vlr.value)
+
+        if (servico.length < 5 || listaServico.indexOf(servico) != -1) {
+            alert(`Não pode haver serviço duplicado ou com menos de 5 dígitos`)
+
+        } else if (preco < 1 || preco >= 40) {
+            alert(`O preço tem que estar entre 1 e 39,99`)
+        }
+        else {
+            listaServico.push(servico);
+            listaPreco.push(preco);
+            valorTotal += preco
+
+            let texto = ``
+
+            for (let i = listaServico.length - 1; i >= 0; i--) {
+                texto += `${listaServico[i]}<br>${listaPreco[i]}<br><br>`
+
+            }
+            div_exibir.innerHTML = `${texto}`
+        }
+    }
+
+    function ajuste() {
+        let ajuste = Number(ipt_ajuste.value);
+
+        if (ajuste < 1 || ajuste > 20) {
+            alert(`O percentual deve estar entre 1 e 20%`)
+        } else {
+            let mudanca = ajuste / 100
+            for (let a = 0; a < listaPreco.length; a++) {
+                listaPreco[a] += (listaPreco[a] * mudanca)
+            }
+            let texto = ``;
+
+            for (let i = 0; i < listaPreco.length; i++) {
+                texto += `Serviço: ${listaServico[i]}<br>
+                Valor: ${listaPreco[i]}<br><br><br>`
+
+            }
+            div_ajuste.innerHTML = `${texto}`
+        }
+    }
+
+    function encerrar() {
+        let maior = listaPreco[0];
+        let menor = listaPreco[0];
+
+        let idMaior = 0;
+        let idMenor = 0;
+
+        let texto = ``
+        for (let i = 0; i < listaPreco.length; i++) {
+            if (listaPreco[i] > maior) {
+                maior = listaPreco[i];
+                idMaior = i
+            }
+            if (listaPreco[i] < menor) {
+                menor = listaPreco[i]
+                idMenor = i
+            }
+        }
+
+
+        div_encerrar.innerHTML = `Quantidade de serviços cadastrados: ${listaServico.length}
+    ${listaServico[idMaior]}  Maior: ${maior}<br><br>
+    ${listaServico[idMenor]}Menor: ${menor}<br><br>
+     Média do valor dos serviços: ${((valorTotal / listaPreco.length)).toFixed(2)}<br>`
+
+
+
+
+    }
+
+</script>
+
+</html>
