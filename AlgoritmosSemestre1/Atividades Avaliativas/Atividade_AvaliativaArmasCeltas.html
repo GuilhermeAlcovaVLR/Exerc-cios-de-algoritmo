@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>REGISTRO DE ARMA</h3>
+    Nome: <input type="text" id="ipt_arma">
+    <br>Tipo: <select id="slt_tipo">
+        <option>Corte</option>
+        <option>Blindagem</option>
+        <option>Projéteis</option>
+        <option>Cerco</option>
+    </select><br>
+    Pontos: <input type="number" id="ipt_pts">
+    <br> <button onclick="registro()">REGISTRAR</button>
+    <div id="div_exibir"></div><br>
+
+    <h3>TROCA DE PONTOS POR NOME</h3>
+    <br> Arma: <input type="text" id="ipt_nome"><br>
+    <button onclick="troca()">NOVOS PONTOS</button><br>
+    <div id="div_texto"></div><br><br>
+
+    <h3>TROCA DE PONTOS POR TIPO</h3>
+    Tipo: <select id="slt_tipo_troca">
+        <option>Corte</option>
+        <option>Blindagem</option>
+        <option>Projéteis</option>
+        <option>Cerco</option>
+    </select><br>
+    <button onclick="trocaGrupo()">NOVOS PONTOS</button><br>
+    <div id="div_paragrafo"></div><br><br>
+
+    <h3>LISTAGEM</h3>
+    Tipo: <select id="slt_tipo_Lista">
+        <option>Corte</option>
+        <option>Blindagem</option>
+        <option>Projéteis</option>
+        <option>Cerco</option>
+    </select><br>
+    <button onclick="lista()">LISTAR</button>
+    <div id="div_lista"></div>
+
+
+
+
+
+
+
+</body>
+
+<script>
+    let lista_arma = [];
+    let lista_tipo = [];
+    let lista_pontos = [];
+
+    function registro() {
+        let nome = ipt_arma.value;
+        let tipo = slt_tipo.value;
+        let pontos = Number(ipt_pts.value)
+
+        if (lista_arma.indexOf(nome) != -1) {
+            alert(`Essa arma já foi inserida`)
+        } else if (pontos < 0) {
+            alert(`Pontos não pode ser menor que 0`)
+        } else {
+            lista_arma.push(nome);
+            lista_tipo.push(tipo);
+            lista_pontos.push(pontos);
+
+            div_exibir.innerHTML = `${nome} inserido com sucesso`
+            div_texto.innerHTML = ``
+            div_paragrafo.innerHTML = ``
+            div_lista.innerHTML = ``
+
+        }
+    }
+
+    function troca() {
+        let nome = ipt_nome.value;
+        if (lista_arma.indexOf(nome) === -1) {
+            alert(`Essa arma não existe`)
+        } else {
+            let novo = Number(prompt("NOVA PONTUAÇÃO:"))
+
+            for (let i = 0; i < lista_arma.length; i++) {
+                if (lista_arma[i] === nome) {
+                    lista_pontos[i] = novo
+                }
+                div_texto.innerHTML = `Pontos do ${nome} trocados com sucesso`
+                div_exibir.innerHTML = ``
+                div_paragrafo.innerHTML = ``
+                div_lista.innerHTML = ``
+            }
+        }
+    }
+
+    function trocaGrupo() {
+        let tipo = slt_tipo_troca.value;
+        if (lista_tipo.indexOf(tipo) === -1) {
+            alert(`Ainda não foi registrada armas desse tipo`)
+
+        } else {
+            let novoS = Number(prompt("NOVA PONTUAÇÃO POR TIPO EM %:"))
+
+
+            let acrescimo = novoS / 100;
+
+            for (let i = 0; i < lista_tipo.length; i++) {
+                if (lista_tipo[i] === tipo) {
+                    lista_pontos[i] += (acrescimo * lista_pontos[i])
+                }
+            }
+            div_paragrafo.innerHTML = `Pontos do tipo ${tipo} trocados com sucesso`
+            div_exibir.innerHTML = ``
+            div_texto.innerHTML = ``
+            div_lista.innerHTML = ``
+        }
+
+    }
+
+    function lista() {
+        let tipo = slt_tipo_Lista.value;
+        let texto = ``
+        if (lista_tipo.indexOf(tipo) === -1) {
+            alert(`Ainda não foi registrada armas desse tipo`)
+
+        } else {
+            let maior = lista_pontos[0]
+            let menor = lista_pontos[0]
+            let qtd = 0
+
+            for (let i = 0; i < lista_tipo.length; i++) {
+                if (lista_tipo[i] === tipo) {
+                    qtd++
+                    texto += `${lista_arma[i]} - ${lista_tipo[i]} - ${lista_pontos[i]}<br>`
+                    if (lista_pontos[i] > maior) {
+                        maior = lista_pontos[i]
+                    } if (lista_tipo[i] < menor) {
+                        menor = lista_pontos[i]
+                    }
+                }
+            }
+            div_lista.innerHTML = `${texto}<br>
+            MENOR:${menor}<br>
+            MAIOR:${maior}<br>
+            Quantidade de armas: ${qtd}`
+            div_exibir.innerHTML = ``
+            div_texto.innerHTML = ``
+            div_paragrafo.innerHTML = ``
+        }
+    }
+</script>
+
+</html>
